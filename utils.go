@@ -172,6 +172,31 @@ func isPalindrome(s string) bool {
 	return true
 }
 
+func gcm(n, m int) int {
+	if n < m {
+		n, m = m, n
+	}
+
+	for {
+		r := n % m
+		if r > 0 {
+			n, m = m, r
+		}
+		if r == 0 {
+			return m
+		}
+	}
+	return 0
+}
+
+func lcm(n, m int) int {
+	g := gcm(n, m)
+	if g == 1 {
+		return n * m
+	}
+	return n * m / g
+}
+
 func pow10(n int) int {
 	m := 1
 	for i := 0; i < n; i++ {
