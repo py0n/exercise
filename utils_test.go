@@ -23,8 +23,8 @@ func Benchmark_PrimeGenerator1(b *testing.B) {
 	fmt.Println(PrimeGenerator.Size())
 }
 
-func Benchmark_PrimeGenerator2(b *testing.B) {
-	PrimeGenerator := NewPrimeGenerator2()
+func Benchmark_PrimeGenerator(b *testing.B) {
+	PrimeGenerator := NewPrimeGenerator()
 	for i := 0; i < N; i++ {
 		PrimeGenerator.Next()
 	}

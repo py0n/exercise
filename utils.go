@@ -109,7 +109,9 @@ func (p *PrimeGenerator1) Size() int {
 	return len(p.multiples)
 }
 
-type PrimeGenerator2 struct {
+// https://qiita.com/cia_rana/items/2a878181da41033ec1d8
+// https://qiita.com/antimon2/items/cada59fb3b1f028f4fb3
+type PrimeGenerator struct {
 	Next      func() int
 	Size      func() int
 	multiples map[int]int
@@ -117,8 +119,8 @@ type PrimeGenerator2 struct {
 	primeChan chan int
 }
 
-func NewPrimeGenerator2() *PrimeGenerator2 {
-	p := PrimeGenerator2{
+func NewPrimeGenerator() *PrimeGenerator {
+	p := PrimeGenerator{
 		primeChan: make(chan int),
 		multiples: map[int]int{},
 	}
@@ -162,7 +164,7 @@ func NewPrimeGenerator2() *PrimeGenerator2 {
 
 func CreatePrimeArray(n int) []int {
 	primeNumbers := []int{}
-	primeGenerator := NewPrimeGenerator0()
+	primeGenerator := NewPrimeGenerator()
 	for {
 		m := primeGenerator.Next()
 		if m > n {
