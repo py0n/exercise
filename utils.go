@@ -161,16 +161,3 @@ func NewPrimeGenerator() *PrimeGenerator {
 
 	return &p
 }
-
-func CreatePrimeArray(n int) []int {
-	primeNumbers := []int{}
-	primeGenerator := NewPrimeGenerator()
-	for {
-		m := primeGenerator.Next()
-		if m > n {
-			break
-		}
-		primeNumbers = append(primeNumbers, m)
-	}
-	return primeNumbers
-}

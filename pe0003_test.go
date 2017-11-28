@@ -11,7 +11,7 @@ func TestPE0003(t *testing.T) {
 		{600851475143, 6857},
 	}
 	for _, tc := range cases {
-		if actual := PE0003(tc.Input); actual != tc.Expected {
+		if actual, _ := PE0003(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
 	}
