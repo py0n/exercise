@@ -204,3 +204,12 @@ func pow10(n int) int {
 	}
 	return m
 }
+
+func multiplyDigits(n int) int {
+	product := 1
+	for n > 0 {
+		product *= n % 10
+		n = n / 10
+	}
+	return product
+}
