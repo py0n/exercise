@@ -31,6 +31,16 @@ func Benchmark_PrimeGenerator(b *testing.B) {
 	fmt.Println(PrimeGenerator.Size())
 }
 
+func Test_PrimeGenerator(t *testing.T) {
+	PrimeGenerator := NewPrimeGenerator()
+
+	for _, expected := range []int{2, 3, 5, 7, 11, 13, 17, 19, 23} {
+		if actual := PrimeGenerator.Next(); actual != expected {
+			t.Errorf("expected=%v, actual=%v", expected, actual)
+		}
+	}
+}
+
 func Test_gcm(t *testing.T) {
 	cases := []struct {
 		InputX   int
