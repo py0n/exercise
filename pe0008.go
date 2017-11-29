@@ -1,7 +1,6 @@
 package project_euler
 
 import (
-	"fmt"
 	"strconv"
 
 	"github.com/pkg/errors"
@@ -32,7 +31,6 @@ const digits = "73167176531330624919225119674426574742355349194934" +
 func PE0008(n int) (int, error) {
 	maxNum := 0
 	for i := 0; i < len(digits)-n-1; i++ {
-		fmt.Println(digits[i : i+n])
 		s := digits[i : i+n]
 		m, err := strconv.Atoi(s)
 		if err != nil {
