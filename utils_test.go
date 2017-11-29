@@ -107,3 +107,18 @@ func Test_pow10(t *testing.T) {
 		}
 	}
 }
+
+func Test_multiplyDigits(t *testing.T) {
+	cases := []struct {
+		Input0   int
+		Expected int
+	}{
+		{1234, 24},
+		{9876, 3024},
+	}
+	for _, tc := range cases {
+		if actual := multiplyDigits(tc.Input0); actual != tc.Expected {
+			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
+		}
+	}
+}
