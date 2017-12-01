@@ -1,7 +1,5 @@
 package project_euler
 
-import "fmt"
-
 // https://projecteuler.net/problem=9
 /*
  * a < b < c and a + b + c = 1000 の時の abc の値
@@ -23,7 +21,6 @@ func PE0009() int {
 			}
 			m := a * b * c
 			if m > maxNum {
-				fmt.Println(a, b, c, a+b+c, m)
 				maxNum = m
 			}
 		}

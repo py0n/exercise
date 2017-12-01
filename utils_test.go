@@ -1,7 +1,6 @@
 package project_euler
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -12,7 +11,6 @@ func Benchmark_PrimeGenerator0(b *testing.B) {
 	for i := 0; i < N; i++ {
 		PrimeGenerator.Next()
 	}
-	fmt.Println(PrimeGenerator.Size())
 }
 
 func Benchmark_PrimeGenerator1(b *testing.B) {
@@ -20,7 +18,6 @@ func Benchmark_PrimeGenerator1(b *testing.B) {
 	for i := 0; i < N; i++ {
 		PrimeGenerator.Next()
 	}
-	fmt.Println(PrimeGenerator.Size())
 }
 
 func Benchmark_PrimeGenerator(b *testing.B) {
@@ -28,7 +25,6 @@ func Benchmark_PrimeGenerator(b *testing.B) {
 	for i := 0; i < N; i++ {
 		PrimeGenerator.Next()
 	}
-	fmt.Println(PrimeGenerator.Size())
 }
 
 func Test_PrimeGenerator(t *testing.T) {
