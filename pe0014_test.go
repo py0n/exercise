@@ -7,7 +7,7 @@ func Test_PE0014(t *testing.T) {
 		Input    int
 		Expected int
 	}{
-		{10000000, 686},
+		{1000000, 837799},
 	}
 	for _, tc := range cases {
 		if actual := PE0014(tc.Input); actual != tc.Expected {
@@ -23,13 +23,12 @@ func Benchmark_PE0014(b *testing.B) {
 	}
 }
 
-/*
 func Test_PE0014_2(t *testing.T) {
 	cases := []struct {
 		Input    int
 		Expected int
 	}{
-		{10000000, 686},
+		{1000000, 837799},
 	}
 	for _, tc := range cases {
 		if actual := PE0014_2(tc.Input); actual != tc.Expected {
@@ -37,7 +36,6 @@ func Test_PE0014_2(t *testing.T) {
 		}
 	}
 }
-*/
 
 func Benchmark_PE0014_2(b *testing.B) {
 	b.ResetTimer()

@@ -2,13 +2,15 @@ package project_euler
 
 // https://projecteuler.net/problem=14
 func PE0014(n int) int {
-	maxLength := 0
+	maxLength := 0      // Collatz Sequenceの最大の長さ
+	startingNumber := 0 // その時の開始数値
 	for i := 1; i < n; i++ {
 		if l := countCollatzSequenceLength(i); l > maxLength {
 			maxLength = l
+			startingNumber = i
 		}
 	}
-	return maxLength
+	return startingNumber
 }
 
 func countCollatzSequenceLength(n int) int {
@@ -26,14 +28,19 @@ func countCollatzSequenceLength(n int) int {
 /*
 計算済の数字をマップで記録したら寧ろ遅くなった。
 メモリ確保の為。
-Benchmark_PE0014-2         10000           2291253 ns/op               0 B/op          0 allocs/op
-Benchmark_PE0014_2-2       10000          14047469 ns/op          854232 B/op       1177 allocs/op
+=== RUN   Test_PE0014
+--- PASS: Test_PE0014 (0.38s)
+=== RUN   Test_PE0014_2
+--- PASS: Test_PE0014_2 (2.84s)
+Benchmark_PE0014-2         10000           2470412 ns/op               0 B/op          0 allocs/op
+Benchmark_PE0014_2-2       10000          14004803 ns/op          854254 B/op       1177 allocs/op
 PASS
-ok      github.com/py0n/project_euler   210.552s
+ok      github.com/py0n/project_euler   167.988s
 */
 func PE0014_2(n int) int {
 	trush := map[int]bool{}
 	maxLength := 0
+	startingNumber := 0
 	for i := 1; i < n; i++ {
 		if trush[i] {
 			continue
@@ -49,7 +56,8 @@ func PE0014_2(n int) int {
 		}
 		if c+1 > maxLength {
 			maxLength = c + 1
+			startingNumber = i
 		}
 	}
-	return maxLength
+	return startingNumber
 }
