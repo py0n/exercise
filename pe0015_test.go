@@ -4,10 +4,12 @@ import "testing"
 
 func Test_PE0015(t *testing.T) {
 	cases := []struct {
-		Input    int
-		Expected int
+		Input    int64
+		Expected int64
 	}{
-		{0, 0},
+		{2, 6},
+		{3, 20},
+		{20, 137846528820},
 	}
 	for _, tc := range cases {
 		if actual := PE0015(tc.Input); actual != tc.Expected {
