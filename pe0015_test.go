@@ -2,16 +2,17 @@ package project_euler
 
 import "testing"
 
+var pe0015Cases = []struct {
+	Input    int
+	Expected int64
+}{
+	{2, 6},
+	{3, 20},
+	{20, 137846528820},
+}
+
 func Test_PE0015(t *testing.T) {
-	cases := []struct {
-		Input    int
-		Expected int64
-	}{
-		{2, 6},
-		{3, 20},
-		{20, 137846528820},
-	}
-	for _, tc := range cases {
+	for _, tc := range pe0015Cases {
 		if actual := PE0015(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
@@ -19,15 +20,7 @@ func Test_PE0015(t *testing.T) {
 }
 
 func Test_PE0015Dp(t *testing.T) {
-	cases := []struct {
-		Input    int
-		Expected int64
-	}{
-		{2, 6},
-		{3, 20},
-		{20, 137846528820},
-	}
-	for _, tc := range cases {
+	for _, tc := range pe0015Cases {
 		if actual := PE0015Dp(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
@@ -35,15 +28,7 @@ func Test_PE0015Dp(t *testing.T) {
 }
 
 func Test_PE0015Memoization(t *testing.T) {
-	cases := []struct {
-		Input    int
-		Expected int64
-	}{
-		{2, 6},
-		{3, 20},
-		{20, 137846528820},
-	}
-	for _, tc := range cases {
+	for _, tc := range pe0015Cases {
 		if actual := PE0015Memoization(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}

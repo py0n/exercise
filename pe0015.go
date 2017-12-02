@@ -73,19 +73,28 @@ func PE0015Dp(n int) int64 {
 // PE0015Memoization メモ化を利用して計算 (再歸を試したが計算が終了しなかつた)
 func PE0015Memoization(n int) int64 {
 	memo := make([]int64, (n+1)*(n+1))
-	return routeNumber(n, n, n+1, memo)
-}
 
-func routeNumber(i, j, n int, memo []int64) int64 {
-	if i < 0 || j < 0 {
-		return 0
-	} else if i == 0 && j == 0 {
-		return 1
-	} else if memo[j*n+i] > 0 {
-		return memo[j*n+i]
-	} else if memo[i*n+j] > 0 {
-		return memo[i*n+j]
+	var routeNumber func(int, int) int64
+	routeNumber = func(i, j int) int64 {
+		if i < 0 || j < 0 {
+			return 0
+		} else if i == 0 && j == 0 {
+			return 1
+		}
+
+		p0 := j*(n+1) + i
+		if memo[p0] > 0 {
+			return memo[p0]
+		}
+		p1 := i*(n+1) + j // 對稱性から
+		if memo[p1] > 0 {
+			return memo[p1]
+		}
+
+		memo[p0] = routeNumber(i-1, j) + routeNumber(i, j-1)
+
+		return memo[p0]
 	}
-	memo[j*n+i] = routeNumber(i-1, j, n, memo) + routeNumber(i, j-1, n, memo)
-	return memo[j*n+i]
+
+	return routeNumber(n, n)
 }
