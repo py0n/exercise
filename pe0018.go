@@ -15,15 +15,21 @@ func PE0018Memoization(size int, data []string) int {
 		if i < 0 || j < 0 || i > j {
 			return 0
 		}
+
 		p := j*(j+1)/2 + i
 		if memo[p] > 0 {
 			return memo[p]
 		}
+
 		m, _ := strconv.Atoi(data[p])
-		if routeSum(i-1, j-1) > routeSum(i, j-1) {
-			memo[p] = m + routeSum(i-1, j-1)
+
+		lv := routeSum(i-1, j-1)
+		rv := routeSum(i, j-1)
+
+		if lv > rv {
+			memo[p] = m + lv
 		} else {
-			memo[p] = m + routeSum(i, j-1)
+			memo[p] = m + rv
 		}
 		return memo[p]
 	}
