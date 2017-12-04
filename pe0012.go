@@ -1,11 +1,11 @@
 package project_euler
 
-import "github.com/pkg/errors"
-
 // http://hanatsubaki.shiseidogroup.jp/comic2/2368/
 //
 // n が a^x * b^y * c^z と素因数分解できる時、
 // 約数の個数は(x+1)(y+1)(z+1)個である。
+
+// PE0012 約數の個數が初めてnを越える三角數を計算
 func PE0012(n int) int {
 	for i := 1; ; i++ {
 		triangleNumber := i * (i + 1) / 2 // 三角数
@@ -31,7 +31,8 @@ func factorizePrime(n int) map[int]int {
 	return primeMap
 }
 
-func PE0012_2(n int) (int, error) {
+// PE0012a 約數の個數が初めてnを越える三角數を計算(2)
+func PE0012a(n int) int {
 	for i := 1; ; i++ {
 		t := i * (i + 1) / 2     // 三角数
 		g := NewPrimeGenerator() // 素数ジェネレータ
@@ -47,8 +48,7 @@ func PE0012_2(n int) (int, error) {
 			dn *= c + 1
 		}
 		if dn > n {
-			return t, nil
+			return t
 		}
 	}
-	return 0, errors.New("No solution exist")
 }
