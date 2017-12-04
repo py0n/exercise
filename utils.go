@@ -205,12 +205,21 @@ func Lcm(n, m int) int {
 	return n * m / g
 }
 
-func pow10(n int) int {
-	m := 1
-	for i := 0; i < n; i++ {
-		m *= 10
+// Pow 累乘を計算
+func Pow(m, n int) int {
+	if n < 0 {
+		return 0
 	}
-	return m
+	p := 1
+	for i := 0; i < n; i++ {
+		p *= m
+	}
+	return p
+}
+
+// Pow10 10の累乘を計算
+func Pow10(n int) int {
+	return Pow(10, n)
 }
 
 func multiplyDigits(n int) int {

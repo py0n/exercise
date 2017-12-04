@@ -105,18 +105,42 @@ func Test_Lcm(t *testing.T) {
 	}
 }
 
-func Test_pow10(t *testing.T) {
+func Test_Pow(t *testing.T) {
+	cases := []struct {
+		InputX   int
+		InputY   int
+		Expected int
+	}{
+		// 異常系: 指數が負數
+		{2, -1, 0},
+		// 正常系
+		{0, 2, 0},
+		{0, 0, 1},
+		{2, 3, 8},
+		{2, 0, 1},
+	}
+	for _, tc := range cases {
+		if actual := Pow(tc.InputX, tc.InputY); actual != tc.Expected {
+			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
+		}
+	}
+}
+
+func Test_Pow10(t *testing.T) {
 	cases := []struct {
 		Input    int
 		Expected int
 	}{
+		// 異常系: 指數が負數
+		{-1, 0},
+		// 正常系
 		{0, 1},
 		{1, 10},
 		{2, 100},
 		{3, 1000},
 	}
 	for _, tc := range cases {
-		if actual := pow10(tc.Input); actual != tc.Expected {
+		if actual := Pow10(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
 	}

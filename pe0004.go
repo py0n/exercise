@@ -5,11 +5,13 @@ import (
 )
 
 // https://projecteuler.net/problem=4
+
+// PE0004 二つの三桁の数値の積で囘文と成る物の内、最大の物を計算する
 func PE0004(n int) int {
 
-	imax := pow10(n) - pow10(n-1) - 1
+	imax := Pow10(n) - Pow10(n-1) - 1
 
-	max := pow10(n) - 1
+	max := Pow10(n) - 1
 
 	mMax, x0, y0 := 0, 0, 0
 	for i := 0; i <= imax; i++ {
