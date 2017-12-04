@@ -49,6 +49,7 @@ func PE0021a(n int) int {
 				}
 			}
 		}
+		// 素數は友愛數にならないので省く
 		if len(pf) > 0 {
 			sumMap[i] = 1
 			for k, v := range pf {
