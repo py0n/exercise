@@ -248,6 +248,19 @@ func Pow10(n int) int {
 	return Pow(10, n)
 }
 
+// SumFactors 約數の総和を計算
+func SumFactors(n int) int {
+	if n < 2 {
+		return 0
+	}
+	pm := PrimeFactorize(n)
+	sum := 1
+	for k, v := range pm {
+		sum *= (Pow(k, (v+1)) - 1) / (k - 1)
+	}
+	return sum
+}
+
 // DayOfWeek 曜日を表す型
 type DayOfWeek int
 

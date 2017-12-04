@@ -180,6 +180,30 @@ func Test_Pow10(t *testing.T) {
 	}
 }
 
+func Test_SumFactors(t *testing.T) {
+	cases := []struct {
+		Input    int
+		Expected int
+	}{
+		// 異常系: < 2
+		{-1, 0},
+		{0, 0},
+		{1, 0},
+		// 正常系
+		{2, 3},
+		{3, 4},
+		{4, 7},
+		{5, 6},
+		{220, 504},
+		{284, 504},
+	}
+	for _, tc := range cases {
+		if actual := SumFactors(tc.Input); actual != tc.Expected {
+			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
+		}
+	}
+}
+
 func Test_ZellerWeekday(t *testing.T) {
 	cases := []struct {
 		InputY   int
