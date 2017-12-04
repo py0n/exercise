@@ -20,7 +20,7 @@ func Test_PE0012(t *testing.T) {
 
 func Benchmark_PE0012(b *testing.B) {
 	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+	for i := 0; i < 10; i++ {
 		PE0012(500)
 	}
 }
@@ -35,7 +35,7 @@ func Test_PE0012a(t *testing.T) {
 
 func Benchmark_PE0012a(b *testing.B) {
 	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+	for i := 0; i < 10; i++ {
 		PE0012a(500)
 	}
 }

@@ -33,21 +33,31 @@ func factorizePrime(n int) map[int]int {
 
 // PE0012a 約數の個數が初めてnを越える三角數を計算(2)
 func PE0012a(n int) int {
+	pm := []int{}             // 素數リスト
+	pg := NewPrimeGenerator() // 素數ジェネレータ
 	for i := 1; ; i++ {
-		t := i * (i + 1) / 2     // 三角数
-		g := NewPrimeGenerator() // 素数ジェネレータ
-		dn := 1                  // 約数の個数
-		for m, p := t, g.Next(); m >= p; p = g.Next() {
-			c := 0
-			for ; m%p == 0; m = m / p {
-				c++
+		t := i * (i + 1) / 2 // 三角数
+		for {
+			pm = append(pm, pg.Next())
+			if pm[len(pm)-1] > t {
+				break
 			}
-			if c == 0 {
-				continue
-			}
-			dn *= c + 1
 		}
-		if dn > n {
+
+		// 素因数分解
+		pf := map[int]int{} // 素因数
+		for m, j := t, 0; m >= pm[j]; j++ {
+			p := pm[j]
+			for ; m%p == 0; m = m / p {
+				pf[p]++
+			}
+		}
+
+		d := 1 // 約数の個数
+		for _, v := range pf {
+			d *= (v + 1)
+		}
+		if d > n {
 			return t
 		}
 	}
