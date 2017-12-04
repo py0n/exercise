@@ -111,6 +111,8 @@ func (p *PrimeGenerator1) Size() int {
 
 // https://qiita.com/cia_rana/items/2a878181da41033ec1d8
 // https://qiita.com/antimon2/items/cada59fb3b1f028f4fb3
+
+// PrimeGenerator 素數生成器
 type PrimeGenerator struct {
 	Next      func() int
 	Size      func() int
@@ -119,6 +121,7 @@ type PrimeGenerator struct {
 	primeChan chan int
 }
 
+// NewPrimeGenerator 素數生成器を作成する
 func NewPrimeGenerator() *PrimeGenerator {
 	p := PrimeGenerator{
 		primeChan: make(chan int),
@@ -203,6 +206,27 @@ func Lcm(n, m int) int {
 		return n * m
 	}
 	return n * m / g
+}
+
+// PrimeFactorize 素因數分解する
+func PrimeFactorize(n int) map[int]int {
+	if n < 2 {
+		return nil
+	}
+	pm := map[int]int{} // 素因數
+	pg := NewPrimeGenerator()
+	for m, p := n, pg.Next(); p <= n/2 || m > 1; p = pg.Next() {
+		if m%p > 0 {
+			continue
+		}
+		for ; m%p == 0; m = m / p {
+			pm[p]++
+		}
+	}
+	if len(pm) == 0 {
+		return map[int]int{n: 1}
+	}
+	return pm
 }
 
 // Pow 累乘を計算
