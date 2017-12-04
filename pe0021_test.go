@@ -24,7 +24,7 @@ func Test_PE0021(t *testing.T) {
 
 func Benchmark_PE0021(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		PE0021(i)
+		PE0021(1000)
 	}
 }
 
@@ -38,6 +38,6 @@ func Test_PE0021a(t *testing.T) {
 
 func Benchmark_PE0021a(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		PE0021a(i)
+		PE0021a(1000)
 	}
 }
