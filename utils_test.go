@@ -87,6 +87,23 @@ func Test_lcm(t *testing.T) {
 	}
 }
 
+func Test_pow(t *testing.T) {
+	cases := []struct {
+		InputX   int
+		InputY   int
+		Expected int
+	}{
+		{3, 0, 1},
+		{2, 3, 8},
+		{10, 5, 100000},
+	}
+	for _, tc := range cases {
+		if actual := pow(tc.InputX, tc.InputY); actual != tc.Expected {
+			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
+		}
+	}
+}
+
 func Test_pow10(t *testing.T) {
 	cases := []struct {
 		Input    int

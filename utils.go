@@ -197,6 +197,14 @@ func lcm(n, m int) int {
 	return n * m / g
 }
 
+func pow(n, m int) int {
+	r := 1
+	for i := 0; i < m; i++ {
+		r = r * n
+	}
+	return r
+}
+
 func pow10(n int) int {
 	m := 1
 	for i := 0; i < n; i++ {
