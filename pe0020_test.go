@@ -7,6 +7,7 @@ var pe0020Cases = []struct {
 	Expected int
 }{
 	{10, 27},
+	{100, 648},
 }
 
 func Test_PE0020(t *testing.T) {
