@@ -10,9 +10,6 @@ package project_euler
 
 // PE0021 n以下の友愛数の總和
 func PE0021(n int) int {
-	if n < 2 {
-		return 0
-	}
 	sumMap := map[int]int{} // m, mの約數の總和-m
 	for i := 2; i <= n; i++ {
 		m := SumFactors(i) - i
@@ -34,17 +31,31 @@ func PE0021(n int) int {
 
 // PE0021a n以下の友愛数の總和(2)
 func PE0021a(n int) int {
+	pm := []int{} // n以下の素數
+	pg := NewPrimeGenerator()
+	for p := pg.Next(); p <= n; p = pg.Next() {
+		pm = append(pm, p)
+	}
+
 	sumMap := map[int]int{} // m, mの約數の總和-m
 	for i := 2; i <= n; i++ {
-		pm := PrimeFactorize(i)
-		if len(pm) == 0 {
-			continue
+		m := i
+		pf := map[int]int{} // mの素因數
+		for j := 0; pm[j] <= i/2; j++ {
+			p := pm[j]
+			if m%p == 0 {
+				for ; m%p == 0; m = m / p {
+					pf[p]++
+				}
+			}
 		}
-		sumMap[i] = 1
-		for k, v := range pm {
-			sumMap[i] *= (Pow(k, (v+1)) - 1) / (k - 1)
+		if len(pf) > 0 {
+			sumMap[i] = 1
+			for k, v := range pf {
+				sumMap[i] *= (Pow(k, (v+1)) - 1) / (k - 1)
+			}
+			sumMap[i] -= i
 		}
-		sumMap[i] -= i
 	}
 	sum := 0
 	for k, v := range sumMap {
