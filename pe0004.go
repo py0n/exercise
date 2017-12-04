@@ -23,7 +23,7 @@ func PE0004(n int) int {
 			if m <= mMax {
 				continue
 			}
-			if isPalindrome(strconv.Itoa(m)) {
+			if IsPalindrome(strconv.Itoa(m)) {
 				mMax, x0, y0 = m, x, y
 			}
 		}

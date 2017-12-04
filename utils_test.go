@@ -61,17 +61,21 @@ func Test_Gcm(t *testing.T) {
 	}
 }
 
-func Test_isPalrindrome(t *testing.T) {
+func Test_IsPalrindrome(t *testing.T) {
 	cases := []struct {
 		Input    string
 		Expected bool
 	}{
+		// 異常系: 囘文で無い
 		{"abcde", false},
+		{"あいうえお", false},
+		// 正常系: 囘文
+		{"", true},
 		{"abcba", true},
-		{"abccba", true},
+		{"あいういあ", true},
 	}
 	for _, tc := range cases {
-		if actual := isPalindrome(tc.Input); actual != tc.Expected {
+		if actual := IsPalindrome(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
 	}

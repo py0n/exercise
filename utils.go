@@ -162,16 +162,6 @@ func NewPrimeGenerator() *PrimeGenerator {
 	return &p
 }
 
-func isPalindrome(s string) bool {
-	r := []rune(s)
-	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
-		if r[i] != r[j] {
-			return false
-		}
-	}
-	return true
-}
-
 // Gcm 最大公約數を計算する
 func Gcm(n, m int) int {
 	if n < 1 || m < 1 {
@@ -190,6 +180,20 @@ func Gcm(n, m int) int {
 		}
 	}
 	return 0
+}
+
+// IsPalindrome 囘文？
+func IsPalindrome(s string) bool {
+	if len(s) == 0 {
+		return true
+	}
+	r := []rune(s)
+	for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {
+		if r[i] != r[j] {
+			return false
+		}
+	}
+	return true
 }
 
 // Lcm 最小公倍數を計算する
