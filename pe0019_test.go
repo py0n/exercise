@@ -5,7 +5,7 @@ import "testing"
 var pe0019Cases = []struct {
 	Expeceted int
 }{
-	{10},
+	{5200},
 }
 
 func Test_PE0019(t *testing.T) {
