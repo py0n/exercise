@@ -118,3 +118,20 @@ func Test_multiplyDigits(t *testing.T) {
 		}
 	}
 }
+
+func Test_zellerWeekday(t *testing.T) {
+	cases := []struct {
+		InputY   int
+		InputM   int
+		InputD   int
+		Expected int
+	}{
+		{1904, 1, 4, 1},
+		{1904, 4, 5, 2},
+	}
+	for _, tc := range cases {
+		if actual := zellerWeekday(tc.InputY, tc.InputM, tc.InputD); actual != tc.Expected {
+			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
+		}
+	}
+}

@@ -213,3 +213,15 @@ func multiplyDigits(n int) int {
 	}
 	return product
 }
+
+// zellerWeekday ツェラーの公式
+func zellerWeekday(y, m, d int) int {
+	y_, m_ := y, m
+	if m < 3 {
+		y_, m_ = y-1, m+12
+	}
+	C := int(y_ / 100)
+	G := 5*C + int(C/4)
+	Y := y_ % 100
+	return ((d + int(26*(m_+1)/10) + Y + int(Y/4) + G + 5) % 7) + 1
+}
