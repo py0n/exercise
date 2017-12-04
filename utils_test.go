@@ -37,18 +37,25 @@ func Test_PrimeGenerator(t *testing.T) {
 	}
 }
 
-func Test_gcm(t *testing.T) {
+func Test_Gcm(t *testing.T) {
 	cases := []struct {
 		InputX   int
 		InputY   int
 		Expected int
 	}{
+		// 異常系: 0を含む
+		{0, 2, 0},
+		{3, 0, 0},
+		// 異常系: 負數を含む
+		{-2, 2, 0},
+		{10, -5, 0},
+		// 正常系
 		{2, 3, 1},
 		{12, 16, 4},
 		{24, 36, 12},
 	}
 	for _, tc := range cases {
-		if actual := gcm(tc.InputX, tc.InputY); actual != tc.Expected {
+		if actual := Gcm(tc.InputX, tc.InputY); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
 	}
@@ -70,18 +77,25 @@ func Test_isPalrindrome(t *testing.T) {
 	}
 }
 
-func Test_lcm(t *testing.T) {
+func Test_Lcm(t *testing.T) {
 	cases := []struct {
 		InputX   int
 		InputY   int
 		Expected int
 	}{
+		// 異常系:0を含む
+		{0, 3, 0},
+		{2, 0, 0},
+		// 異常系:負數を含む
+		{-2, 3, 0},
+		{12, -16, 0},
+		// 正常系
 		{2, 3, 6},
 		{12, 16, 48},
 		{24, 36, 72},
 	}
 	for _, tc := range cases {
-		if actual := lcm(tc.InputX, tc.InputY); actual != tc.Expected {
+		if actual := Lcm(tc.InputX, tc.InputY); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
 	}

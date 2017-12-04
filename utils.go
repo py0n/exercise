@@ -172,11 +172,14 @@ func isPalindrome(s string) bool {
 	return true
 }
 
-func gcm(n, m int) int {
+// Gcm 最大公約數を計算する
+func Gcm(n, m int) int {
+	if n < 1 || m < 1 {
+		return 0
+	}
 	if n < m {
 		n, m = m, n
 	}
-
 	for {
 		r := n % m
 		if r > 0 {
@@ -189,8 +192,9 @@ func gcm(n, m int) int {
 	return 0
 }
 
-func lcm(n, m int) int {
-	g := gcm(n, m)
+// Lcm 最小公倍數を計算する
+func Lcm(n, m int) int {
+	g := Gcm(n, m)
 	if g == 1 {
 		return n * m
 	}
