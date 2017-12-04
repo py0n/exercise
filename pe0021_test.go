@@ -4,31 +4,40 @@ import "testing"
 
 var pe0021Cases = []struct {
 	Input    int
-	Expected []int
+	Expected int
 }{
-	{300, []int{220, 284}},
+	{-1, 0},
+	{0, 0},
+	{1, 0},
+	{2, 0},
+	{300, 504},
+	{10000, 31626},
 }
 
 func Test_PE0021(t *testing.T) {
 	for _, tc := range pe0021Cases {
-		if actual := PE0021(tc.Input); !loopEqualInt(actual, tc.Expected) {
+		if actual := PE0021(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
 	}
 }
 
-func loopEqualInt(l, r []int) bool {
-	if len(l) != len(r) {
-		return false
+func Benchmark_PE0021(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PE0021(i)
 	}
-	min := len(l)
-	if len(r) < len(l) {
-		min = len(r)
-	}
-	for i := 0; i < min; i++ {
-		if l[i] != r[i] {
-			return false
+}
+
+func Test_PE0021a(t *testing.T) {
+	for _, tc := range pe0021Cases {
+		if actual := PE0021a(tc.Input); actual != tc.Expected {
+			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
 	}
-	return true
+}
+
+func Benchmark_PE0021a(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PE0021a(i)
+	}
 }
