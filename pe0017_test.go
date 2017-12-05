@@ -21,6 +21,7 @@ func Test_PE0017SortSort(t *testing.T) {
 }
 
 func Benchmark_PE0017SortSort(b *testing.B) {
+	b.ResetTimer()
 	PE0017SortSort(b.N)
 }
 
@@ -36,5 +37,6 @@ func Test_PE0017SortSlice(t *testing.T) {
 }
 
 func Benchmark_PE0017SortSlice(b *testing.B) {
+	b.ResetTimer()
 	PE0017SortSlice(b.N)
 }
