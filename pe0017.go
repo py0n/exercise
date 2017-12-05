@@ -50,17 +50,47 @@ var pe0017WordLength = map[int]int{
 /*
 	https://projecteuler.net/problem=16
 */
-func PE0017(n int) (int, error) {
+
+// PE0017SortSort 1-1000までの数字のスペルに含まれる文字数の総和を計算
+func PE0017SortSort(n int) (int, error) {
 	if n < 1 || 1000 < n {
 		return 0, errors.New("n must be between 1 and 1000")
 	}
 
 	// keys (降順)
 	ks := []int{}
-	for k, _ := range pe0017WordLength {
+	for k := range pe0017WordLength {
 		ks = append(ks, k)
 	}
 	sort.Sort(sort.Reverse(sort.IntSlice(ks)))
+
+	sumWc := 0 // 総文字数
+	for m := 1; m <= n; m++ {
+		l := m
+		for _, k := range ks {
+			if l/k > 0 {
+				sumWc += pe0017WordLength[k]
+				if l = l % k; l > 0 && 100 <= k && k <= 900 {
+					sumWc += 3 // "and" 分
+				}
+			}
+		}
+	}
+	return sumWc, nil
+}
+
+// PE0017SortSlice 1-1000までの数字のスペルに含まれる文字数の総和を計算(2)
+func PE0017SortSlice(n int) (int, error) {
+	if n < 1 || 1000 < n {
+		return 0, errors.New("n must be between 1 and 1000")
+	}
+
+	// keys (降順)
+	ks := []int{}
+	for k := range pe0017WordLength {
+		ks = append(ks, k)
+	}
+	sort.Slice(ks, func(i, j int) bool { return j < i })
 
 	sumWc := 0 // 総文字数
 	for m := 1; m <= n; m++ {
