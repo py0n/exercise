@@ -2,14 +2,15 @@ package project_euler
 
 import "testing"
 
+var pe0014Cases = []struct {
+	Input    int
+	Expected int
+}{
+	{1000000, 837799},
+}
+
 func Test_PE0014a(t *testing.T) {
-	cases := []struct {
-		Input    int
-		Expected int
-	}{
-		{1000000, 837799},
-	}
-	for _, tc := range cases {
+	for _, tc := range pe0014Cases {
 		if actual := PE0014a(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
@@ -24,13 +25,7 @@ func Benchmark_PE0014a(b *testing.B) {
 }
 
 func Test_PE0014b(t *testing.T) {
-	cases := []struct {
-		Input    int
-		Expected int
-	}{
-		{1000000, 837799},
-	}
-	for _, tc := range cases {
+	for _, tc := range pe0014Cases {
 		if actual := PE0014b(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
