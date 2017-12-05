@@ -38,6 +38,26 @@ func Test_PrimeGenerator(t *testing.T) {
 	}
 }
 
+func Test_CollatzLength(t *testing.T) {
+	cases := []struct {
+		Input    int
+		Expected int
+	}{
+		// 異常系: < 2
+		{-1, 0},
+		{0, 0},
+		{1, 0},
+		// 正常系
+		{4, 3},
+		{13, 10},
+	}
+	for _, tc := range cases {
+		if actual := CollatzLength(tc.Input); actual != tc.Expected {
+			t.Errorf("expected:%v, actual:%v", tc.Expected, actual)
+		}
+	}
+}
+
 func Test_Gcm(t *testing.T) {
 	cases := []struct {
 		InputX   int

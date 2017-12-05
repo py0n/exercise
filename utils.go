@@ -165,6 +165,23 @@ func NewPrimeGenerator() *PrimeGenerator {
 	return &p
 }
 
+// CollatzLength Collatz Sequenceの長さを計算
+func CollatzLength(n int) int {
+	if n < 2 {
+		return 0
+	}
+
+	l := 0 // Collatz Sequenceの長さ
+	for ; n > 1; l++ {
+		if n%2 == 0 {
+			n /= 2
+		} else {
+			n = 3*n + 1
+		}
+	}
+	return l + 1
+}
+
 // Gcm 最大公約數を計算する
 func Gcm(n, m int) int {
 	if n < 1 || m < 1 {
