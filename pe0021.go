@@ -8,8 +8,8 @@ package project_euler
 // 36 = 2^2 * 3^2
 // (2^0 + 2^1 + 2^2) * (3^0 + 3^1 + 3^2) - 36 = 7 * 13 - 36 = 91 - 36 = 55
 
-// PE0021 n以下の友愛数の總和
-func PE0021(n int) int {
+// PE0021a n以下の友愛数の總和
+func PE0021a(n int) int {
 	sumMap := map[int]int{} // m, mの約數の總和-m
 	for i := 2; i <= n; i++ {
 		m := SumFactors(i) - i
@@ -29,8 +29,8 @@ func PE0021(n int) int {
 	return sum
 }
 
-// PE0021a n以下の友愛数の總和(2)
-func PE0021a(n int) int {
+// PE0021Memoization n以下の友愛数の總和(2)
+func PE0021Memoization(n int) int {
 	pm := []int{} // n以下の素數
 	pg := NewPrimeGenerator()
 	for p := pg.Next(); p <= n; p = pg.Next() {
