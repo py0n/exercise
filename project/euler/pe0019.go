@@ -1,4 +1,4 @@
-package project_euler
+package euler
 
 // PE0019 20世紀の月初が日曜日になる回数を計算
 func PE0019(s, e int) int {

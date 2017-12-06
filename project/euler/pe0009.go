@@ -1,4 +1,4 @@
-package project_euler
+package euler
 
 // https://projecteuler.net/problem=9
 /*

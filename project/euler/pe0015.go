@@ -1,4 +1,4 @@
-package project_euler
+package euler
 
 import (
 	"math/big"
@@ -10,7 +10,7 @@ import (
 // BenchmarkPE0015Dp-4                      100000             12500 ns/op            4096 B/op          1 allocs/op
 // BenchmarkPE0015Memoization-4             300000              5701 ns/op            4096 B/op          1 allocs/op
 // PASS
-// ok      github.com/py0n/project_euler   6.166s
+// ok      github.com/py0n/project/euler   6.166s
 
 // PE0015 組み合はせを使用して計算 (bigも使用)
 //

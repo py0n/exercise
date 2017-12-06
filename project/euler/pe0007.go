@@ -1,4 +1,4 @@
-package project_euler
+package euler
 
 func PE0007(n int) int {
 	primeGenerator := NewPrimeGenerator()

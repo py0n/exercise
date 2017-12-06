@@ -1,4 +1,4 @@
-package project_euler
+package euler
 
 // http://hanatsubaki.shiseidogroup.jp/comic2/2368/
 //
@@ -65,5 +65,5 @@ func PE0012b(n int) int {
 BenchmarkPE0012a-2            1        3138566396 ns/op        308812312 B/op    784230 allocs/op
 BenchmarkPE0012b-2           20          60763821 ns/op         3117858 B/op      49740 allocs/op
 PASS
-ok      github.com/py0n/project_euler   7.615s
+ok      github.com/py0n/project/euler   7.615s
 */

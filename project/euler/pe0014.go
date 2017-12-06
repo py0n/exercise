@@ -1,4 +1,4 @@
-package project_euler
+package euler
 
 // https://projecteuler.net/problem=14
 
@@ -25,7 +25,7 @@ func PE0014a(n int) int {
 BenchmarkPE0014a-2        10000           2284030 ns/op               0 B/op          0 allocs/op
 BenchmarkPE0014b-2        10000           4302648 ns/op          684764 B/op        627 allocs/op
 PASS
-ok      github.com/py0n/project_euler   67.015s
+ok      github.com/py0n/project/euler   67.015s
 */
 
 // PE0014b 1,000,000以下の数字でCollatz Sequenceが最も長いものを計算(2)

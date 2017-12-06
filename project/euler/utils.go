@@ -1,4 +1,4 @@
-package project_euler
+package euler
 
 type PrimeGenerator0 struct {
 	primeChan chan int

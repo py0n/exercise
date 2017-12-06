@@ -1,4 +1,4 @@
-package project_euler
+package euler
 
 // 約数の総和
 //
