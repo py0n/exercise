@@ -18,12 +18,12 @@ func PE0014a(n int) int {
 /*
 計算済の数字をマップで記録したら寧ろ遅くなった。
 メモリ確保の為。
-=== RUN   Test_PE0014a
---- PASS: Test_PE0014a (0.36s)
-=== RUN   Test_PE0014b
---- PASS: Test_PE0014b (0.77s)
-Benchmark_PE0014a-2        10000           2284030 ns/op               0 B/op          0 allocs/op
-Benchmark_PE0014b-2        10000           4302648 ns/op          684764 B/op        627 allocs/op
+=== RUN   TestPE0014a
+--- PASS: TestPE0014a (0.36s)
+=== RUN   TestPE0014b
+--- PASS: TestPE0014b (0.77s)
+BenchmarkPE0014a-2        10000           2284030 ns/op               0 B/op          0 allocs/op
+BenchmarkPE0014b-2        10000           4302648 ns/op          684764 B/op        627 allocs/op
 PASS
 ok      github.com/py0n/project_euler   67.015s
 */

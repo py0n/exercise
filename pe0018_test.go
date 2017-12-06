@@ -32,7 +32,7 @@ var pe0018Cases = []struct {
 	}, 1074},
 }
 
-func Test_PE0018(t *testing.T) {
+func TestPE0018(t *testing.T) {
 	for _, tc := range pe0018Cases {
 		if actual := PE0018Memoization(tc.Input0, tc.Input1); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)

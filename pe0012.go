@@ -58,12 +58,12 @@ func PE0012b(n int) int {
 }
 
 /*
-=== RUN   Test_PE0012a
---- PASS: Test_PE0012a (3.13s)
-=== RUN   Test_PE0012b
---- PASS: Test_PE0012b (0.06s)
-Benchmark_PE0012a-2            1        3138566396 ns/op        308812312 B/op    784230 allocs/op
-Benchmark_PE0012b-2           20          60763821 ns/op         3117858 B/op      49740 allocs/op
+=== RUN   TestPE0012a
+--- PASS: TestPE0012a (3.13s)
+=== RUN   TestPE0012b
+--- PASS: TestPE0012b (0.06s)
+BenchmarkPE0012a-2            1        3138566396 ns/op        308812312 B/op    784230 allocs/op
+BenchmarkPE0012b-2           20          60763821 ns/op         3117858 B/op      49740 allocs/op
 PASS
 ok      github.com/py0n/project_euler   7.615s
 */

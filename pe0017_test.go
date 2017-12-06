@@ -9,7 +9,7 @@ var pe0017Cases = []struct {
 	{1000, 21124},
 }
 
-func Test_PE0017SortSort(t *testing.T) {
+func TestPE0017SortSort(t *testing.T) {
 	for _, tc := range pe0017Cases {
 		actual, err := PE0017SortSort(tc.Input)
 		if err != nil {
@@ -20,12 +20,12 @@ func Test_PE0017SortSort(t *testing.T) {
 	}
 }
 
-func Benchmark_PE0017SortSort(b *testing.B) {
+func BenchmarkPE0017SortSort(b *testing.B) {
 	b.ResetTimer()
 	PE0017SortSort(b.N)
 }
 
-func Test_PE0017SortSlice(t *testing.T) {
+func TestPE0017SortSlice(t *testing.T) {
 	for _, tc := range pe0017Cases {
 		actual, err := PE0017SortSort(tc.Input)
 		if err != nil {
@@ -36,7 +36,7 @@ func Test_PE0017SortSlice(t *testing.T) {
 	}
 }
 
-func Benchmark_PE0017SortSlice(b *testing.B) {
+func BenchmarkPE0017SortSlice(b *testing.B) {
 	b.ResetTimer()
 	PE0017SortSlice(b.N)
 }

@@ -2,7 +2,7 @@ package project_euler
 
 import "testing"
 
-func Test_PE0011(t *testing.T) {
+func TestPE0011(t *testing.T) {
 	cases := []struct {
 		Expected int
 	}{

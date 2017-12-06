@@ -7,28 +7,28 @@ import (
 
 const N = 1000000
 
-func Benchmark_PrimeGenerator0(b *testing.B) {
+func BenchmarkPrimeGenerator0(b *testing.B) {
 	PrimeGenerator := NewPrimeGenerator0()
 	for i := 0; i < N; i++ {
 		PrimeGenerator.Next()
 	}
 }
 
-func Benchmark_PrimeGenerator1(b *testing.B) {
+func BenchmarkPrimeGenerator1(b *testing.B) {
 	PrimeGenerator := NewPrimeGenerator1()
 	for i := 0; i < N; i++ {
 		PrimeGenerator.Next()
 	}
 }
 
-func Benchmark_PrimeGenerator(b *testing.B) {
+func BenchmarkPrimeGenerator(b *testing.B) {
 	PrimeGenerator := NewPrimeGenerator()
 	for i := 0; i < N; i++ {
 		PrimeGenerator.Next()
 	}
 }
 
-func Test_PrimeGenerator(t *testing.T) {
+func TestPrimeGenerator(t *testing.T) {
 	PrimeGenerator := NewPrimeGenerator()
 
 	for _, expected := range []int{2, 3, 5, 7, 11, 13, 17, 19, 23} {
@@ -38,7 +38,7 @@ func Test_PrimeGenerator(t *testing.T) {
 	}
 }
 
-func Test_CollatzLength(t *testing.T) {
+func TestCollatzLength(t *testing.T) {
 	cases := []struct {
 		Input    int
 		Expected int
@@ -58,7 +58,7 @@ func Test_CollatzLength(t *testing.T) {
 	}
 }
 
-func Test_Gcm(t *testing.T) {
+func TestGcm(t *testing.T) {
 	cases := []struct {
 		InputX   int
 		InputY   int
@@ -82,7 +82,7 @@ func Test_Gcm(t *testing.T) {
 	}
 }
 
-func Test_IsPalrindrome(t *testing.T) {
+func TestIsPalrindrome(t *testing.T) {
 	cases := []struct {
 		Input    string
 		Expected bool
@@ -102,7 +102,7 @@ func Test_IsPalrindrome(t *testing.T) {
 	}
 }
 
-func Test_Lcm(t *testing.T) {
+func TestLcm(t *testing.T) {
 	cases := []struct {
 		InputX   int
 		InputY   int
@@ -126,7 +126,7 @@ func Test_Lcm(t *testing.T) {
 	}
 }
 
-func Test_PrimeFactorize(t *testing.T) {
+func TestPrimeFactorize(t *testing.T) {
 	invalidCases := []struct {
 		Input int
 	}{
@@ -159,7 +159,7 @@ func Test_PrimeFactorize(t *testing.T) {
 	}
 }
 
-func Test_Pow(t *testing.T) {
+func TestPow(t *testing.T) {
 	cases := []struct {
 		InputX   int
 		InputY   int
@@ -180,7 +180,7 @@ func Test_Pow(t *testing.T) {
 	}
 }
 
-func Test_Pow10(t *testing.T) {
+func TestPow10(t *testing.T) {
 	cases := []struct {
 		Input    int
 		Expected int
@@ -200,7 +200,7 @@ func Test_Pow10(t *testing.T) {
 	}
 }
 
-func Test_SumFactors(t *testing.T) {
+func TestSumFactors(t *testing.T) {
 	cases := []struct {
 		Input    int
 		Expected int
@@ -224,7 +224,7 @@ func Test_SumFactors(t *testing.T) {
 	}
 }
 
-func Test_ZellerWeekday(t *testing.T) {
+func TestZellerWeekday(t *testing.T) {
 	cases := []struct {
 		InputY   int
 		InputM   int
@@ -246,7 +246,7 @@ func Test_ZellerWeekday(t *testing.T) {
 	}
 }
 
-func Test_multiplyDigits(t *testing.T) {
+func TestmultiplyDigits(t *testing.T) {
 	cases := []struct {
 		Input0   int
 		Expected int

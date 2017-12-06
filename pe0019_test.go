@@ -11,7 +11,7 @@ var pe0019Cases = []struct {
 	{1901, 2000, 171},
 }
 
-func Test_PE0019(t *testing.T) {
+func TestPE0019(t *testing.T) {
 	for _, tc := range pe0019Cases {
 		if actual := PE0019(tc.Input0, tc.Input1); actual != tc.Expeceted {
 			t.Errorf("expected=%v, actual=%v", tc.Expeceted, actual)

@@ -9,7 +9,7 @@ var pe0014Cases = []struct {
 	{1000000, 837799},
 }
 
-func Test_PE0014a(t *testing.T) {
+func TestPE0014a(t *testing.T) {
 	for _, tc := range pe0014Cases {
 		if actual := PE0014a(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
@@ -17,14 +17,14 @@ func Test_PE0014a(t *testing.T) {
 	}
 }
 
-func Benchmark_PE0014a(b *testing.B) {
+func BenchmarkPE0014a(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		PE0014a(b.N)
 	}
 }
 
-func Test_PE0014b(t *testing.T) {
+func TestPE0014b(t *testing.T) {
 	for _, tc := range pe0014Cases {
 		if actual := PE0014b(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
@@ -32,7 +32,7 @@ func Test_PE0014b(t *testing.T) {
 	}
 }
 
-func Benchmark_PE0014b(b *testing.B) {
+func BenchmarkPE0014b(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		PE0014b(b.N)

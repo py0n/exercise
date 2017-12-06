@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func Test_PE0004(t *testing.T) {
+func TestPE0004(t *testing.T) {
 	cases := []struct {
 		Input    int
 		Expected int

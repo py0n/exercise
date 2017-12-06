@@ -18,7 +18,7 @@ func TestPE0003SortSort(t *testing.T) {
 	}
 }
 
-func Benchmark_PE0003SortSort(b *testing.B) {
+func BenchmarkPE0003SortSort(b *testing.B) {
 	b.ResetTimer()
 	PE0003SortSort(b.N)
 }
@@ -31,7 +31,7 @@ func TestPE0003SortSlice(t *testing.T) {
 	}
 }
 
-func Benchmark_PE0003SortSlice(b *testing.B) {
+func BenchmarkPE0003SortSlice(b *testing.B) {
 	b.ResetTimer()
 	PE0003SortSlice(b.N)
 }

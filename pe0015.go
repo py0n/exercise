@@ -6,9 +6,9 @@ import (
 
 // https://projecteuler.net/problem=15
 //
-// Benchmark_PE0015-4                        300000              9816 ns/op            3440 B/op         86 allocs/op
-// Benchmark_PE0015Dp-4                      100000             12500 ns/op            4096 B/op          1 allocs/op
-// Benchmark_PE0015Memoization-4             300000              5701 ns/op            4096 B/op          1 allocs/op
+// BenchmarkPE0015-4                        300000              9816 ns/op            3440 B/op         86 allocs/op
+// BenchmarkPE0015Dp-4                      100000             12500 ns/op            4096 B/op          1 allocs/op
+// BenchmarkPE0015Memoization-4             300000              5701 ns/op            4096 B/op          1 allocs/op
 // PASS
 // ok      github.com/py0n/project_euler   6.166s
 
