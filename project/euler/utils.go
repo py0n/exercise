@@ -278,6 +278,15 @@ func SumFactors(n int) int {
 	return sum
 }
 
+// SumSlice スライスの要素の總和を計算
+func SumSlice(slice []int, convertor func(n int) int) int {
+	sum := 0
+	for i := 0; i < len(slice); i++ {
+		sum += convertor(slice[i])
+	}
+	return sum
+}
+
 // DayOfWeek 曜日を表す型
 type DayOfWeek int
 
