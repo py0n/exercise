@@ -1,5 +1,7 @@
 package euler
 
+import "math/big"
+
 type PrimeGenerator0 struct {
 	primeChan chan int
 	multiples map[int]int
@@ -163,6 +165,13 @@ func NewPrimeGenerator() *PrimeGenerator {
 	}
 
 	return &p
+}
+
+// BigNumberLength 桁数を計算
+func BigNumberLength(n *big.Int) int {
+	m := big.NewInt(0).Set(n)
+	m.Abs(m)
+	return len(m.String())
 }
 
 // CollatzLength Collatz Sequenceの長さを計算

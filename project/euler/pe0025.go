@@ -24,26 +24,7 @@ func PE0025(n int) int {
 	}
 
 	m := 1
-	for ; calculateDigitsLength(fibonacci(m)) < n; m++ {
+	for ; BigNumberLength(fibonacci(m)) < n; m++ {
 	}
 	return m + 1
-}
-
-func calculateDigitsLength(n *big.Int) int {
-	zero := big.NewInt(int64(0))
-	ten := big.NewInt(int64(10))
-
-	m := big.NewInt(int64(0))
-	m.Set(n)
-
-	if m.Cmp(zero) == 0 {
-		return 1
-	}
-
-	m.Abs(m)
-	l := 0
-	for ; m.Cmp(zero) > 0; m.Div(m, ten) {
-		l++
-	}
-	return l
 }
