@@ -49,14 +49,16 @@ func PE0024(n int) string {
 	digits := []rune{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
 	answer := []rune{}
 
-	// 各桁の文字を決める
-	for p := 1; len(digits) > 0; {
-		l := len(digits)
-		for i := 0; i < l; i++ {
-			if p+i*permutation(l-1, l-1) <= n && n <= p+(i+1)*permutation(l-1, l-1)-1 {
-				answer = append(answer, digits[i])
-				digits = append(digits[:i], digits[i+1:]...)
-				p = p + i*permutation(l-1, l-1)
+	i := 1 // answerで何桁目までが決定したか？
+
+	// n番目の順列を絞り込む
+	for l := len(digits); l > 0; l = len(digits) {
+		for k := 0; k < l; k++ {
+			// 順列の数 P(n, n) = n!
+			if p := factorial(l - 1); i+k*p <= n && n < i+(k+1)*p {
+				answer = append(answer, digits[k])
+				digits = append(digits[:k], digits[k+1:]...)
+				i += k * p
 				break
 			}
 		}
@@ -65,11 +67,12 @@ func PE0024(n int) string {
 }
 
 func factorial(n int) int {
-	if n == 0 {
+	if n == 0 || n == 1 {
 		return 1
 	}
-	return n * factorial(n-1)
-}
-func permutation(n, k int) int {
-	return factorial(n) / factorial(n-k)
+	product := n
+	for i := n - 1; i > 0; i-- {
+		product *= i
+	}
+	return product
 }
