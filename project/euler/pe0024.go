@@ -85,16 +85,17 @@ func PE0024b(n int) string {
 
 	// n番目の順列を絞り込む
 	for l := 0; l < L; l++ {
-		for k := l; k < L; k++ {
+		for k := 0; k < L-l; k++ {
 			// 順列の数 P(n, n) = n!
-			if p := factorial(L - l - 1); i+(k-l)*p <= n && n < i+(k-l+1)*p {
-				for m := k; m > l; m-- {
+			if p := factorial(L - l - 1); i+k*p <= n && n < i+(k+1)*p {
+				for m := k + l; m > l; m-- {
 					digits[m-1], digits[m] = digits[m], digits[m-1]
 				}
-				i += (k - l) * p
+				i += k * p
 				break
 			}
 		}
 	}
+
 	return string(digits)
 }
