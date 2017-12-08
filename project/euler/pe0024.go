@@ -44,19 +44,21 @@ package euler
 //
 // 結局 `2783915460` が 1,000,000 番目の数列。
 
-// PE0024 10個の数字の順列を辞書式に並べたときにn番目のものを計算する
-func PE0024(n int) string {
+// PE0024a 10個の数字の順列を辞書式に並べたときにn番目のものを計算する
+func PE0024a(n int) string {
 	digits := []rune{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
 	answer := []rune{}
 
-	// 各桁の文字を決める
-	for p := 1; len(digits) > 0; {
-		l := len(digits)
-		for i := 0; i < l; i++ {
-			if p+i*permutation(l-1, l-1) <= n && n <= p+(i+1)*permutation(l-1, l-1)-1 {
-				answer = append(answer, digits[i])
-				digits = append(digits[:i], digits[i+1:]...)
-				p = p + i*permutation(l-1, l-1)
+	i := 1
+
+	// n番目の順列を絞り込む
+	for l := len(digits); l > 0; l = len(digits) {
+		for k := 0; k < l; k++ {
+			// 順列の数 P(n, n) = n!
+			if p := factorial(l - 1); i+k*p <= n && n < i+(k+1)*p {
+				answer = append(answer, digits[k])
+				digits = append(digits[:k], digits[k+1:]...)
+				i += k * p
 				break
 			}
 		}
@@ -65,11 +67,35 @@ func PE0024(n int) string {
 }
 
 func factorial(n int) int {
-	if n == 0 {
+	if n == 0 || n == 1 {
 		return 1
 	}
-	return n * factorial(n-1)
+	product := n
+	for i := n - 1; i > 0; i-- {
+		product *= i
+	}
+	return product
 }
-func permutation(n, k int) int {
-	return factorial(n) / factorial(n-k)
+
+// PE0024b digitsを入れ替えていくバージョン
+func PE0024b(n int) string {
+	digits := []rune{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
+
+	i, L := 1, len(digits)
+
+	// n番目の順列を絞り込む
+	for l := 0; l < L; l++ {
+		for k := 0; k < L-l; k++ {
+			// 順列の数 P(n, n) = n!
+			if p := factorial(L - l - 1); i+k*p <= n && n < i+(k+1)*p {
+				for m := k + l; m > l; m-- {
+					digits[m-1], digits[m] = digits[m], digits[m-1]
+				}
+				i += k * p
+				break
+			}
+		}
+	}
+
+	return string(digits)
 }
