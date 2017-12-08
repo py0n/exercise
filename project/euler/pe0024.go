@@ -49,7 +49,7 @@ func PE0024a(n int) string {
 	digits := []rune{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
 	answer := []rune{}
 
-	i := 1 // answerで何桁目までが決定したか？
+	i := 1
 
 	// n番目の順列を絞り込む
 	for l := len(digits); l > 0; l = len(digits) {
