@@ -44,8 +44,8 @@ package euler
 //
 // 結局 `2783915460` が 1,000,000 番目の数列。
 
-// PE0024 10個の数字の順列を辞書式に並べたときにn番目のものを計算する
-func PE0024(n int) string {
+// PE0024a 10個の数字の順列を辞書式に並べたときにn番目のものを計算する
+func PE0024a(n int) string {
 	digits := []rune{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
 	answer := []rune{}
 
@@ -75,4 +75,10 @@ func factorial(n int) int {
 		product *= i
 	}
 	return product
+}
+
+// PE0024b digitsを入れ替えていくバージョン
+func PE0024b(n int) string {
+	digits := []rune{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
+	return string(digits)
 }
