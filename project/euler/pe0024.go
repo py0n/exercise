@@ -80,5 +80,21 @@ func factorial(n int) int {
 // PE0024b digitsを入れ替えていくバージョン
 func PE0024b(n int) string {
 	digits := []rune{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
+
+	i, L := 1, len(digits)
+
+	// n番目の順列を絞り込む
+	for l := 0; l < L; l++ {
+		for k := l; k < L; k++ {
+			// 順列の数 P(n, n) = n!
+			if p := factorial(L - l - 1); i+(k-l)*p <= n && n < i+(k-l+1)*p {
+				for m := k; m > l; m-- {
+					digits[m-1], digits[m] = digits[m], digits[m-1]
+				}
+				i += (k - l) * p
+				break
+			}
+		}
+	}
 	return string(digits)
 }
