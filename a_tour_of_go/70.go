@@ -3,7 +3,7 @@ package tour
 import (
 	"fmt"
 
-	"code.google.com/p/go-tour/tree"
+	"github.com/golang/tour/tree"
 )
 
 func walk(t *tree.Tree, ch chan int) {
