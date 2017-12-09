@@ -4,7 +4,7 @@ import (
 	"os"
 
 	flags "github.com/jessevdk/go-flags"
-	tour "github.com/py0n/a_tour_of_go"
+	tour "github.com/py0n/exercise/a_tour_of_go"
 )
 
 var opts tour.Options
