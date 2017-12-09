@@ -2,20 +2,44 @@
 
 
 [[projects]]
+  name = "github.com/PuerkitoBio/goquery"
+  packages = ["."]
+  revision = "e1271ee34c6a305e38566ecd27ae374944907ee9"
+  version = "v1.1.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/andybalholm/cascadia"
+  packages = ["."]
+  revision = "349dd0209470eabd9514242c688c403c0926d266"
+
+[[projects]]
+  branch = "release-branch.go1.2"
+  name = "github.com/golang/tour"
+  packages = ["tree"]
+  revision = "6411b957db618d9bb7a070639ab9b899262f86cf"
+
+[[projects]]
+  name = "github.com/jessevdk/go-flags"
+  packages = ["."]
+  revision = "96dc06278ce32a0e9d957d590bb987c81ee66407"
+  version = "v1.3.0"
+
+[[projects]]
   name = "github.com/pkg/errors"
   packages = ["."]
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
   version = "v0.8.0"
 
 [[projects]]
-  name = "github.com/pkg/profile"
-  packages = ["."]
-  revision = "5b67d428864e92711fcbd2f8629456121a56d91f"
-  version = "v1.2.1"
+  branch = "master"
+  name = "golang.org/x/net"
+  packages = ["html","html/atom"]
+  revision = "dc871a5d77e227f5bbf6545176ef3eeebf87e76e"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b5eba1a6092a16e4dea511b7db32c3fd56c7c7ab1984595882c84a279a9eaeb9"
+  inputs-digest = "0e3b65ac352eea475f99a1b9be65ba0c0d4efad9b60d6cb4be644aa4d919108c"
   solver-name = "gps-cdcl"
   solver-version = 1
