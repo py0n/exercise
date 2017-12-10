@@ -4,6 +4,8 @@ import (
 	"strconv"
 )
 
+// https://projecteuler.net/problem=11
+
 const pe0011GridSize = 20
 const pe0011Length = 4
 
@@ -30,7 +32,7 @@ var pe0011DigitGrid = []string{
 	"01", "70", "54", "71", "83", "51", "54", "69", "16", "92", "33", "48", "61", "43", "52", "01", "89", "19", "67", "48",
 }
 
-// https://projecteuler.net/problem=11
+// PE0011 四つの隣接する數字の積の内、最大の物を計算する。
 //
 // +---+-----+---+
 // |   |     |   |
@@ -51,8 +53,6 @@ var pe0011DigitGrid = []string{
 // D: A B C
 // LD: B C
 // RD: A
-
-// PE0011 四つの隣接する數字の積の内、最大の物を計算する。
 func PE0011() int {
 
 	digitGrid := make([]int, len(pe0011DigitGrid))

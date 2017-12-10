@@ -8,6 +8,7 @@ import (
 //https://projecteuler.net/problem=16
 
 // PE0016 2^1000 の各桁の和を計算
+//
 // 2^1000 は大体300桁(log10 2 = 0.30....)
 func PE0016(n int) int {
 	// 2^n
