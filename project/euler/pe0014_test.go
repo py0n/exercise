@@ -17,18 +17,19 @@ func TestPE0014a(t *testing.T) {
 	}
 }
 
-func BenchmarkPE0014a(b *testing.B) {
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		PE0014a(b.N)
-	}
-}
-
 func TestPE0014b(t *testing.T) {
 	for _, tc := range pe0014Cases {
 		if actual := PE0014b(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
+	}
+}
+
+// Benchmarks {{{
+func BenchmarkPE0014a(b *testing.B) {
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		PE0014a(b.N)
 	}
 }
 
@@ -38,3 +39,7 @@ func BenchmarkPE0014b(b *testing.B) {
 		PE0014b(b.N)
 	}
 }
+
+// }}}
+
+// vim:set foldmethod=marker

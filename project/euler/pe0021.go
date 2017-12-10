@@ -1,5 +1,9 @@
 package euler
 
+// https://projecteuler.net/problem=21
+
+// PE0021a n以下の友愛数の總和
+//
 // 約数の総和
 //
 // 36の約数(自分自身を除く) 1 + 2 + 3 + 4 + 6 + 9 + 12 + 18 = 55
@@ -7,8 +11,6 @@ package euler
 // 36を素因数分解:
 // 36 = 2^2 * 3^2
 // (2^0 + 2^1 + 2^2) * (3^0 + 3^1 + 3^2) - 36 = 7 * 13 - 36 = 91 - 36 = 55
-
-// PE0021a n以下の友愛数の總和
 func PE0021a(n int) int {
 	sumMap := map[int]int{} // m, mの約數の總和-m
 	for i := 2; i <= n; i++ {

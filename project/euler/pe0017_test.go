@@ -20,11 +20,6 @@ func TestPE0017SortSort(t *testing.T) {
 	}
 }
 
-func BenchmarkPE0017SortSort(b *testing.B) {
-	b.ResetTimer()
-	PE0017SortSort(b.N)
-}
-
 func TestPE0017SortSlice(t *testing.T) {
 	for _, tc := range pe0017Cases {
 		actual, err := PE0017SortSort(tc.Input)
@@ -36,7 +31,17 @@ func TestPE0017SortSlice(t *testing.T) {
 	}
 }
 
+// Benchmarks {{{
+func BenchmarkPE0017SortSort(b *testing.B) {
+	b.ResetTimer()
+	PE0017SortSort(b.N)
+}
+
 func BenchmarkPE0017SortSlice(b *testing.B) {
 	b.ResetTimer()
 	PE0017SortSlice(b.N)
 }
+
+// }}}
+
+// vim:set foldmethod=marker:

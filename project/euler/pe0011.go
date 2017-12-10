@@ -51,6 +51,8 @@ var pe0011DigitGrid = []string{
 // D: A B C
 // LD: B C
 // RD: A
+
+// PE0011 四つの隣接する數字の積の内、最大の物を計算する。
 func PE0011() int {
 
 	digitGrid := make([]int, len(pe0011DigitGrid))

@@ -8,6 +8,8 @@ import (
 	"strings"
 )
 
+// https://projecteuler.net/problem=22
+
 // PE0022 リストに在る単語の点数を計算し総和を求める
 func PE0022(fn string) (int, error) {
 	fh, err := os.Open(fn)

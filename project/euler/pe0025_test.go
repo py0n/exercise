@@ -40,12 +40,6 @@ func TestPE0025a(t *testing.T) {
 	}
 }
 
-func BenchmarkPE0025a(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		PE0025a(1000)
-	}
-}
-
 func TestPE0025b(t *testing.T) {
 	for _, tc := range pe0025Cases {
 		if actual := PE0025b(tc.Input); actual != tc.Expected {
@@ -56,12 +50,6 @@ func TestPE0025b(t *testing.T) {
 				actual,
 			)
 		}
-	}
-}
-
-func BenchmarkPE0025b(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		PE0025b(1000)
 	}
 }
 
@@ -79,9 +67,27 @@ func TestPE0025c(t *testing.T) {
 	}
 }
 
+// Benchmarks {{{
+
+func BenchmarkPE0025a(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PE0025a(1000)
+	}
+}
+
+func BenchmarkPE0025b(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PE0025b(1000)
+	}
+}
+
 func BenchmarkPE0025c(b *testing.B) {
 	b.Skip()
 	for i := 0; i < b.N; i++ {
 		PE0025c(1000)
 	}
 }
+
+// }}}
+
+// vim:set foldmethod=marker:
