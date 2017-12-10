@@ -1,5 +1,7 @@
 package euler
 
+// https://projecteuler.net/problem=23
+
 // Pe0023Limit 此より大きい整數は二つの過剰數の和として表せる
 var Pe0023Limit = 28123
 

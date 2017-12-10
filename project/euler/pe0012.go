@@ -1,11 +1,11 @@
 package euler
 
 // http://hanatsubaki.shiseidogroup.jp/comic2/2368/
+
+// PE0012a 約數の個數が初めてnを越える三角數を計算
 //
 // n が a^x * b^y * c^z と素因数分解できる時、
 // 約数の個数は(x+1)(y+1)(z+1)個である。
-
-// PE0012a 約數の個數が初めてnを越える三角數を計算
 func PE0012a(n int) int {
 	for i := 1; ; i++ {
 		triangleNumber := i * (i + 1) / 2 // 三角数

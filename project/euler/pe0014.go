@@ -2,19 +2,6 @@ package euler
 
 // https://projecteuler.net/problem=14
 
-// PE0014a 1,000,000以下の数字でCollatz Sequenceが最も長いものを計算
-func PE0014a(n int) int {
-	maxLength := 0      // Collatz Sequenceの最大の長さ
-	startingNumber := 0 // その時の開始数値
-	for i := 1; i < n; i++ {
-		if l := CollatzLength(i); l > maxLength {
-			maxLength = l
-			startingNumber = i
-		}
-	}
-	return startingNumber
-}
-
 /*
 計算済の数字をマップで記録したら寧ろ遅くなった。
 メモリ確保の為。
@@ -27,6 +14,19 @@ BenchmarkPE0014b-2        10000           4302648 ns/op          684764 B/op    
 PASS
 ok      github.com/py0n/project/euler   67.015s
 */
+
+// PE0014a 1,000,000以下の数字でCollatz Sequenceが最も長いものを計算
+func PE0014a(n int) int {
+	maxLength := 0      // Collatz Sequenceの最大の長さ
+	startingNumber := 0 // その時の開始数値
+	for i := 1; i < n; i++ {
+		if l := CollatzLength(i); l > maxLength {
+			maxLength = l
+			startingNumber = i
+		}
+	}
+	return startingNumber
+}
 
 // PE0014b 1,000,000以下の数字でCollatz Sequenceが最も長いものを計算(2)
 func PE0014b(n int) int {

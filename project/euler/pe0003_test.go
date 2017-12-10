@@ -7,7 +7,7 @@ var pe0003Cases = []struct {
 	Expected int
 }{
 	{13195, 29},
-	//{600851475143, 6857},
+	{600851475143, 6857},
 }
 
 func TestPE0003SortSort(t *testing.T) {
@@ -18,11 +18,6 @@ func TestPE0003SortSort(t *testing.T) {
 	}
 }
 
-func BenchmarkPE0003SortSort(b *testing.B) {
-	b.ResetTimer()
-	PE0003SortSort(b.N)
-}
-
 func TestPE0003SortSlice(t *testing.T) {
 	for _, tc := range pe0003Cases {
 		if actual, _ := PE0003SortSlice(tc.Input); actual != tc.Expected {
@@ -31,7 +26,22 @@ func TestPE0003SortSlice(t *testing.T) {
 	}
 }
 
+// Benchmarks {{{
+
+func BenchmarkPE0003SortSort(b *testing.B) {
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		PE0003SortSort(600851475143)
+	}
+}
+
 func BenchmarkPE0003SortSlice(b *testing.B) {
 	b.ResetTimer()
-	PE0003SortSlice(b.N)
+	for i := 0; i < b.N; i++ {
+		PE0003SortSlice(600851475143)
+	}
 }
+
+// }}}
+
+// vim:set foldmethod=marker:
