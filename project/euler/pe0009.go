@@ -8,6 +8,8 @@ package euler
  * b: b < c = 1000 - a - b → 2b < 1000 - a → b < (1000 - a)/2
  *    a < b < (1000 - a) / 2
  */
+
+// PE0009 a+b+c=1000を滿たすピタゴラス數の積を計算する。
 func PE0009() int {
 	maxNum := 0
 	for a := 1; a <= 1000/3; a++ {
