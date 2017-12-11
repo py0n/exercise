@@ -35,6 +35,7 @@ func TestPE0015Memoization(t *testing.T) {
 	}
 }
 
+// Benchmarks {{{
 func BenchmarkPE0015(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		PE0015(20)
@@ -52,3 +53,7 @@ func BenchmarkPE0015Memoization(b *testing.B) {
 		PE0015Memoization(20)
 	}
 }
+
+// }}}
+
+// vim:set factorial=marker

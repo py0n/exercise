@@ -47,9 +47,7 @@ var pe0017WordLength = map[int]int{
 	1:    len("one"),
 }
 
-/*
-	https://projecteuler.net/problem=16
-*/
+// https://projecteuler.net/problem=16
 
 // PE0017SortSort 1-1000までの数字のスペルに含まれる文字数の総和を計算
 func PE0017SortSort(n int) (int, error) {

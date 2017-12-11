@@ -5,12 +5,14 @@ import (
 )
 
 // https://projecteuler.net/problem=15
-//
-// BenchmarkPE0015-4                        300000              9816 ns/op            3440 B/op         86 allocs/op
-// BenchmarkPE0015Dp-4                      100000             12500 ns/op            4096 B/op          1 allocs/op
-// BenchmarkPE0015Memoization-4             300000              5701 ns/op            4096 B/op          1 allocs/op
-// PASS
-// ok      github.com/py0n/project/euler   6.166s
+
+/*
+BenchmarkPE0015-4                        300000              9816 ns/op            3440 B/op         86 allocs/op
+BenchmarkPE0015Dp-4                      100000             12500 ns/op            4096 B/op          1 allocs/op
+BenchmarkPE0015Memoization-4             300000              5701 ns/op            4096 B/op          1 allocs/op
+PASS
+ok      github.com/py0n/project/euler   6.166s
+*/
 
 // PE0015 組み合はせを使用して計算 (bigも使用)
 //
@@ -29,7 +31,7 @@ import (
 // | 4| 5|15|  |  |
 // | 5| 6|
 //
-// n * m -> (n+m)Cn
+// n * m -> C(n+m,n)
 func PE0015(n int) int64 {
 	numerator := big.NewInt(1) // 分子
 	for i := 0; i < n; i++ {

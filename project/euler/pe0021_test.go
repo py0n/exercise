@@ -22,12 +22,6 @@ func TestPE0021a(t *testing.T) {
 	}
 }
 
-func BenchmarkPE0021a(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		PE0021a(1000)
-	}
-}
-
 func TestPE0021Memoization(t *testing.T) {
 	for _, tc := range pe0021Cases {
 		if actual := PE0021Memoization(tc.Input); actual != tc.Expected {
@@ -36,8 +30,19 @@ func TestPE0021Memoization(t *testing.T) {
 	}
 }
 
+// Benchmarks {{{
+func BenchmarkPE0021a(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PE0021a(1000)
+	}
+}
+
 func BenchmarkPE0021Memoization(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		PE0021Memoization(1000)
 	}
 }
+
+// }}}
+
+// vim:set foldmethod=marker:
