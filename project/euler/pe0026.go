@@ -11,3 +11,6 @@ func PE0026(n int) int {
 	}
 	return result
 }
+
+// 循環少數は面白い
+// http://www2.math.kindai.ac.jp/~chinen/junkan_f/junkan.html
