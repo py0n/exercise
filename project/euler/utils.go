@@ -1,6 +1,10 @@
 package euler
 
-import "math/big"
+import (
+	"math/big"
+	"strconv"
+	"strings"
+)
 
 type PrimeGenerator0 struct {
 	primeChan chan int
@@ -172,6 +176,54 @@ func BigNumberLength(n *big.Int) int {
 	m := big.NewInt(0).Set(n)
 	m.Abs(m)
 	return len(m.String())
+}
+
+// CalculateRecurringCycle 1/nの循環節を計算する
+func CalculateRecurringCycle(n int) string {
+	if n < 1 {
+		return ""
+	}
+
+	qs := []int{} // 小數點以下第(i+1)位の數字
+	rs := []int{} // 小數點以下第(i+1)位を計算した時の剩餘を10倍した數値
+
+	for q, r := 0, 10; r > 0; q, r = r/n, (r%n)*10 {
+		for i := 0; i < len(qs); i++ {
+			if qs[i] != q || rs[i] != r {
+				continue
+			}
+			rc := make([]string, len(qs[i:]))
+			for k, v := range qs[i:] {
+				rc[k] = strconv.Itoa(v)
+			}
+			return strings.Join(rc, "")
+		}
+		qs = append(qs, q)
+		rs = append(rs, r)
+	}
+	return ""
+}
+
+// CalculateRecurringCycleLength 1/nの循環節の長さを計算する
+func CalculateRecurringCycleLength(n int) int {
+	if n < 1 {
+		return 0
+	}
+
+	qs := []int{} // 小數點以下第(i+1)位の數字
+	rs := []int{} // 小數點以下第(i+1)位を計算した時の剩餘を10倍した數値
+
+	for q, r := 0, 10; r > 0; q, r = r/n, (r%n)*10 {
+		for i := 0; i < len(qs); i++ {
+			if qs[i] != q || rs[i] != r {
+				continue
+			}
+			return len(qs[i:])
+		}
+		qs = append(qs, q)
+		rs = append(rs, r)
+	}
+	return 0
 }
 
 // CollatzLength Collatz Sequenceの長さを計算
