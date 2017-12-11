@@ -2,8 +2,6 @@ package euler
 
 import (
 	"math/big"
-	"strconv"
-	"strings"
 )
 
 type PrimeGenerator0 struct {
@@ -192,11 +190,11 @@ func CalculateRecurringCycle(n int) string {
 			if qs[i] != q || rs[i] != r {
 				continue
 			}
-			rc := make([]string, len(qs[i:]))
+			rc := make([]rune, len(qs[i:]))
 			for k, v := range qs[i:] {
-				rc[k] = strconv.Itoa(v)
+				rc[k] = rune(v) + '0'
 			}
-			return strings.Join(rc, "")
+			return string(rc)
 		}
 		qs = append(qs, q)
 		rs = append(rs, r)
