@@ -1,5 +1,12 @@
 package euler
 
+/*
+素數關係
+
+* [Golangで「エラトステネスの篩」で「1.3秒で百万個」の素数を計算できる「無限シーケンス」を作ってみた](https://qiita.com/antimon2/items/cada59fb3b1f028f4fb3)
+* [Golangで「エラトステネスの篩」で「2.1秒で百万個」の素数を計算できる「無限シーケンス」を作ってみた](https://qiita.com/cia_rana/items/2a878181da41033ec1d8)
+*/
+
 type PrimeGenerator0 struct {
 	primeChan chan int
 	multiples map[int]int
@@ -108,9 +115,6 @@ func (p *PrimeGenerator1) Next() int {
 func (p *PrimeGenerator1) Size() int {
 	return len(p.multiples)
 }
-
-// https://qiita.com/cia_rana/items/2a878181da41033ec1d8
-// https://qiita.com/antimon2/items/cada59fb3b1f028f4fb3
 
 // PrimeGenerator 素數生成器
 type PrimeGenerator struct {
