@@ -118,3 +118,10 @@ func PE0028a(n int) int {
 	}
 	return sum
 }
+
+// PE0029a 2<=a, b<=n の時、a^b の個數(重複を除く)を計算
+//
+// https://projecteuler.net/problem=29
+func PE0029a(n int) int {
+	return 0
+}
