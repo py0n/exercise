@@ -11,23 +11,6 @@ func BigNumberLength(n *big.Int) int {
 	return len(m.String())
 }
 
-// CollatzLength Collatz Sequenceの長さを計算
-func CollatzLength(n int) int {
-	if n < 2 {
-		return 0
-	}
-
-	l := 0 // Collatz Sequenceの長さ
-	for ; n > 1; l++ {
-		if n%2 == 0 {
-			n /= 2
-		} else {
-			n = 3*n + 1
-		}
-	}
-	return l + 1
-}
-
 // Fibonacci n番目のFibonacci數を計算
 func Fibonacci(nth int, fibonacciMap map[int]*big.Int) *big.Int {
 	if nth == 0 || nth == 1 {
