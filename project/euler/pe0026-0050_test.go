@@ -83,4 +83,28 @@ func TestPE0027a(t *testing.T) {
 
 // }}}
 
+// PE0028 {{{
+var pe0028Cases = []struct {
+	Input    int
+	Expected int
+}{
+	{5, 101},
+	{1001, 669171001},
+}
+
+func TestPE0028a(t *testing.T) {
+	for _, tc := range pe0028Cases {
+		if actual := PE0028a(tc.Input); actual != tc.Expected {
+			t.Errorf(
+				"Input:%v\nExpected:%v\nActual:%v",
+				tc.Input,
+				tc.Expected,
+				actual,
+			)
+		}
+	}
+}
+
+// }}}
+
 // vim:set foldmethod=marker:
