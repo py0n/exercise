@@ -146,3 +146,6 @@ func PE0029a(n int) int {
 
 	return len(m)
 }
+
+func PE0030a() {
+}
