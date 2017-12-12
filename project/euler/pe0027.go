@@ -7,12 +7,35 @@ package euler
 //
 // a, b の条件を考える
 //     1. n=0 の時, 0^2+a*0+b=b なので, b は素数
-func PE0027() {
-
-}
-
-func pgFuncGenerator(a, b int) func(int) int {
-	return func(n int) int {
-		return n*n + a*n + b
+func PE0027a(aMax, bMax int) int {
+	// 1000未満の素数を生成
+	pg := NewPrimeGenerator()
+	pm := map[int]bool{} // 素数マップ
+	bs := []int{}        // bの取りうる値(1000未満の素数)
+	for p := pg.Next(); p < bMax; p = pg.Next() {
+		pm[p] = true
+		bs = append(bs, p)
 	}
+
+	// a, bを動かす
+	aResult, bResult, nMax := 0, -1*aMax, -1*bMax
+	for _, b := range bs {
+		for a := -1 * (aMax - 1); a <= aMax-1; a++ {
+			n := 0
+			for {
+				m := n*n + a*n + b
+				for p := pg.Next(); p <= m; p = pg.Next() {
+					pm[p] = true
+				}
+				if _, ok := pm[m]; !ok {
+					break
+				}
+				n++
+			}
+			if n > nMax {
+				aResult, bResult, nMax = a, b, n
+			}
+		}
+	}
+	return aResult * bResult
 }
