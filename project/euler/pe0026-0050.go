@@ -1,5 +1,9 @@
 package euler
 
+import (
+	"math/big"
+)
+
 // PE0026 d<nの内、1/dの循環節が最も長いものを計算する
 //
 // https://projecteuler.net/problem=26
@@ -123,5 +127,22 @@ func PE0028a(n int) int {
 //
 // https://projecteuler.net/problem=29
 func PE0029a(n int) int {
-	return 0
+	if n < 2 {
+		return 0
+	}
+
+	m := map[string]bool{}
+
+	for a := 2; a <= n; a++ {
+		aBig := big.NewInt(int64(a))
+		for b := 2; b <= n; b++ {
+			p := big.NewInt(int64(1))
+			for i := 1; i <= b; i++ {
+				p.Mul(p, aBig)
+			}
+			m[p.String()] = true
+		}
+	}
+
+	return len(m)
 }
