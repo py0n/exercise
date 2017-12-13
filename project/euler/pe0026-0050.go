@@ -199,3 +199,6 @@ func PE0030a(e int) int {
 
 	return sum
 }
+
+func PE0031() {
+}
