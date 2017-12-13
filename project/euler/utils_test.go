@@ -182,27 +182,6 @@ func TestZellerWeekday(t *testing.T) {
 	}
 }
 
-func TestSumSlice(t *testing.T) {
-	cases := []struct {
-		InputSlice     []int
-		InputConvertor func(n int) int
-		Expected       int
-	}{
-		{[]int{1, 2, 3, 4}, func(n int) int { return 2 * n }, 20},
-	}
-	for _, tc := range cases {
-		if actual := SumSlice(tc.InputSlice, tc.InputConvertor); actual != tc.Expected {
-			t.Errorf(
-				"InputSlice:%v\nInputConvertor:%v\nExpected:%v\nActual%v",
-				tc.InputSlice,
-				tc.InputConvertor,
-				tc.Expected,
-				actual,
-			)
-		}
-	}
-}
-
 func TestmultiplyDigits(t *testing.T) {
 	cases := []struct {
 		Input0   int
