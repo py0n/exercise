@@ -1,6 +1,7 @@
 package euler
 
 import (
+	"fmt"
 	"math/big"
 )
 
@@ -200,5 +201,41 @@ func PE0030a(e int) int {
 	return sum
 }
 
-func PE0031() {
+// PE0031a 2Lになる硬貨の組み合わせの個数を計算
+//
+// 英国で流通している硬貨は以下の八種類
+//
+// 1p 2p 5p 10p 20p 50p L1, L2
+//
+// https://projecteuler.net/problem=31
+func PE0031a() int {
+	// 合計が2Lになる組み合わせ
+	m := map[string]bool{}
+
+	// 残りの金額
+	remaining := func(x200, x100, x50, x20, x10, x5, x2, x1 int) int {
+		return 200 - (200*x200 + 100*x100 + 50*x50 + 20*x20 + 10*x10 + 5*x5 + 2*x2 + 1*x1)
+	}
+
+	for x200 := 0; x200 <= remaining(0, 0, 0, 0, 0, 0, 0, 0)/200; x200++ {
+		for x100 := 0; x100 <= remaining(x200, 0, 0, 0, 0, 0, 0, 0)/100; x100++ {
+			for x50 := 0; x50 <= remaining(x200, x100, 0, 0, 0, 0, 0, 0)/50; x50++ {
+				for x20 := 0; x20 <= remaining(x200, x100, x50, 0, 0, 0, 0, 0)/20; x20++ {
+					for x10 := 0; x10 <= remaining(x200, x100, x50, x20, 0, 0, 0, 0)/10; x10++ {
+						for x5 := 0; x5 <= remaining(x200, x100, x50, x20, x10, 0, 0, 0)/5; x5++ {
+							for x2 := 0; x2 <= remaining(x200, x100, x50, x20, x10, x5, 0, 0)/2; x2++ {
+								for x1 := 0; x1 <= remaining(x200, x100, x50, x20, x10, x5, x2, 0)/1; x1++ {
+									if remaining(x200, x100, x50, x20, x10, x5, x2, x1) == 0 {
+										m[fmt.Sprintf("%d:%d:%d:%d:%d:%d:%d:%d", x200, x100, x50, x20, x10, x5, x2, x1)] = true
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return len(m)
 }
