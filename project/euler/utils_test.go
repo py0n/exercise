@@ -182,7 +182,7 @@ func TestZellerWeekday(t *testing.T) {
 	}
 }
 
-func TestmultiplyDigits(t *testing.T) {
+func Test_multiplyDigits(t *testing.T) {
 	cases := []struct {
 		Input0   int
 		Expected int
