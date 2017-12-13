@@ -192,5 +192,10 @@ func PE0030a(e int) int {
 		}
 	}
 
-	return SumIntSlice(results, (func(n int) int { return n }))
+	sum := 0
+	for _, n := range results {
+		sum += n
+	}
+
+	return sum
 }
