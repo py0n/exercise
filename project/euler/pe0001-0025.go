@@ -96,6 +96,36 @@ func PE0003SortSlice(n int) (int, error) {
 	return 0, errors.New("no solution")
 }
 
+// PE0003b 600851475143の最大の素因數を計算
+//
+// 今の所最も速い.
+//
+// https://projecteuler.net/problem=3
+func PE0003b(n int) int {
+	pg := NewPrimeGenerator() // 素数生成器
+	p := pg.Next()
+	for ; n > p; p = pg.Next() {
+		for ; n%p == 0; n /= p {
+			// do nothing
+		}
+	}
+	return p
+}
+
+/*
+=== RUN   TestPE0003SortSort
+--- PASS: TestPE0003SortSort (0.12s)
+=== RUN   TestPE0003SortSlice
+--- PASS: TestPE0003SortSlice (0.11s)
+=== RUN   TestPE0003b
+--- PASS: TestPE0003b (0.00s)
+BenchmarkPE0003SortSort-2             10         117079308 ns/op         9040825 B/op       8334 allocs/op
+BenchmarkPE0003SortSlice-2            10         111302941 ns/op         9042366 B/op       8345 allocs/op
+BenchmarkPE0003b-2                  2000            821824 ns/op           95677 B/op        155 allocs/op
+PASS
+ok      github.com/py0n/exercise/project/euler  4.484s
+*/
+
 // PE0004 二つの三桁の数値の積で囘文と成る物の内、最大の物を計算する
 //
 // https://projecteuler.net/problem=4

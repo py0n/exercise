@@ -53,7 +53,12 @@ var pe0003Cases = []struct {
 func TestPE0003SortSort(t *testing.T) {
 	for _, tc := range pe0003Cases {
 		if actual, _ := PE0003SortSort(tc.Input); actual != tc.Expected {
-			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
+			t.Errorf(
+				"Input:%v\nExpected:%v\nActual:%v",
+				tc.Input,
+				tc.Expected,
+				actual,
+			)
 		}
 	}
 }
@@ -61,7 +66,25 @@ func TestPE0003SortSort(t *testing.T) {
 func TestPE0003SortSlice(t *testing.T) {
 	for _, tc := range pe0003Cases {
 		if actual, _ := PE0003SortSlice(tc.Input); actual != tc.Expected {
-			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
+			t.Errorf(
+				"Input:%v\nExpected:%v\nActual:%v",
+				tc.Input,
+				tc.Expected,
+				actual,
+			)
+		}
+	}
+}
+
+func TestPE0003b(t *testing.T) {
+	for _, tc := range pe0003Cases {
+		if actual := PE0003b(tc.Input); actual != tc.Expected {
+			t.Errorf(
+				"Input:%v\nExpected:%v\nActual:%v",
+				tc.Input,
+				tc.Expected,
+				actual,
+			)
 		}
 	}
 }
@@ -79,6 +102,13 @@ func BenchmarkPE0003SortSlice(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		PE0003SortSlice(600851475143)
+	}
+}
+
+func BenchmarkPE0003b(b *testing.B) {
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		PE0003b(600851475143)
 	}
 }
 
