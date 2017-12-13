@@ -4,18 +4,18 @@ import "testing"
 
 func TestProductIntSlice(t *testing.T) {
 	cases := []struct {
-		InputSlice     []int
-		InputConvertor func(n int) int
-		Expected       int
+		InputSlice []int
+		Expected   int
 	}{
-		{[]int{1, 2, 3, 4}, func(n int) int { return 2 * n }, 384},
+		{nil, 0},
+		{[]int{}, 0},
+		{[]int{1, 2, 3, 4}, 24},
 	}
 	for _, tc := range cases {
-		if actual := ProductIntSlice(tc.InputSlice, tc.InputConvertor); actual != tc.Expected {
+		if actual := ProductIntSlice(tc.InputSlice); actual != tc.Expected {
 			t.Errorf(
-				"InputSlice:%v\nInputConvertor:%v\nExpected:%v\nActual%v",
+				"InputSlice:%v\nExpected:%v\nActual%v",
 				tc.InputSlice,
-				tc.InputConvertor,
 				tc.Expected,
 				actual,
 			)
@@ -25,18 +25,18 @@ func TestProductIntSlice(t *testing.T) {
 
 func TestSumIntSlice(t *testing.T) {
 	cases := []struct {
-		InputSlice     []int
-		InputConvertor func(n int) int
-		Expected       int
+		InputSlice []int
+		Expected   int
 	}{
-		{[]int{1, 2, 3, 4}, func(n int) int { return 2 * n }, 20},
+		{nil, 0},
+		{[]int{}, 0},
+		{[]int{1, 2, 3, 4}, 10},
 	}
 	for _, tc := range cases {
-		if actual := SumIntSlice(tc.InputSlice, tc.InputConvertor); actual != tc.Expected {
+		if actual := SumIntSlice(tc.InputSlice); actual != tc.Expected {
 			t.Errorf(
-				"InputSlice:%v\nInputConvertor:%v\nExpected:%v\nActual%v",
+				"InputSlice:%v\nExpected:%v\nActual%v",
 				tc.InputSlice,
-				tc.InputConvertor,
 				tc.Expected,
 				actual,
 			)

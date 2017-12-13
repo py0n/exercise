@@ -28,7 +28,6 @@ func Gcm(n, m int) int {
 			return m
 		}
 	}
-	return 0
 }
 
 // IsPalindrome 囘文？
