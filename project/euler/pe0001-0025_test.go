@@ -33,7 +33,7 @@ var pe0002Cases = []struct {
 
 func TestPE0002(t *testing.T) {
 	for _, tc := range pe0002Cases {
-		if actual, _ := PE0002(tc.Input); actual != tc.Expected {
+		if actual := PE0002(tc.Input); actual != tc.Expected {
 			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
 		}
 	}
@@ -53,7 +53,7 @@ var pe0003Cases = []struct {
 func TestPE0003SortSort(t *testing.T) {
 	t.Skip()
 	for _, tc := range pe0003Cases {
-		if actual, _ := PE0003SortSort(tc.Input); actual != tc.Expected {
+		if actual := PE0003SortSort(tc.Input); actual != tc.Expected {
 			t.Errorf(
 				"Input:%v\nExpected:%v\nActual:%v",
 				tc.Input,
@@ -67,7 +67,7 @@ func TestPE0003SortSort(t *testing.T) {
 func TestPE0003SortSlice(t *testing.T) {
 	t.Skip()
 	for _, tc := range pe0003Cases {
-		if actual, _ := PE0003SortSlice(tc.Input); actual != tc.Expected {
+		if actual := PE0003SortSlice(tc.Input); actual != tc.Expected {
 			t.Errorf(
 				"Input:%v\nExpected:%v\nActual:%v",
 				tc.Input,
@@ -252,7 +252,7 @@ var pe0008Cases = []struct {
 
 func TestPE0008(t *testing.T) {
 	for _, tc := range pe0008Cases {
-		if actual, _ := PE0008(tc.InputAdjacentNumber, tc.InputGrid); actual != tc.Expected {
+		if actual := PE0008(tc.InputAdjacentNumber, tc.InputGrid); actual != tc.Expected {
 			t.Errorf(
 				"InputAdjacentNumber:%v\nInputGrid:%v\nExpected:%v\nActual:%v",
 				tc.InputAdjacentNumber,
@@ -610,22 +610,28 @@ var pe0017Cases = []struct {
 
 func TestPE0017SortSort(t *testing.T) {
 	for _, tc := range pe0017Cases {
-		actual, err := PE0017SortSort(tc.Input)
-		if err != nil {
-			t.Fatal(err)
-		} else if actual != tc.Expected {
-			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
+		actual := PE0017SortSort(tc.Input)
+		if actual != tc.Expected {
+			t.Errorf(
+				"Input:%v\nExpected:%v\nActual:%v",
+				tc.Input,
+				tc.Expected,
+				actual,
+			)
 		}
 	}
 }
 
 func TestPE0017SortSlice(t *testing.T) {
 	for _, tc := range pe0017Cases {
-		actual, err := PE0017SortSort(tc.Input)
-		if err != nil {
-			t.Fatal(err)
-		} else if actual != tc.Expected {
-			t.Errorf("expected=%v, actual=%v", tc.Expected, actual)
+		actual := PE0017SortSort(tc.Input)
+		if actual != tc.Expected {
+			t.Errorf(
+				"Input:%v\nExpected:%v\nActual:%v",
+				tc.Input,
+				tc.Expected,
+				actual,
+			)
 		}
 	}
 }

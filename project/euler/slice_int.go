@@ -2,7 +2,7 @@ package euler
 
 // ProductIntSlice スライスの各要素の積を計算
 func ProductIntSlice(ns []int) int {
-	if ns == nil || len(ns) == 0 {
+	if len(ns) == 0 {
 		return 0
 	}
 
@@ -15,7 +15,7 @@ func ProductIntSlice(ns []int) int {
 
 // SumIntSlice スライスの各要素の和を計算
 func SumIntSlice(ns []int) int {
-	if ns == nil || len(ns) == 0 {
+	if len(ns) == 0 {
 		return 0
 	}
 

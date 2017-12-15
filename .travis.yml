@@ -5,6 +5,7 @@ go:
 
 before_install:
   - go get github.com/golang/dep/...
+  - go vet ./project/euler
 
 install:
   - $GOPATH/bin/dep ensure

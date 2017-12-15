@@ -9,8 +9,6 @@ import (
 	"sort"
 	"strconv"
 	"strings"
-
-	"github.com/pkg/errors"
 )
 
 // PE0001 1000以下の3と5の倍數の總和を計算
@@ -29,9 +27,9 @@ func PE0001(n int) int {
 // PE0002 4,000,000を越えないFibonacci數の内、偶數である物の總和を計算
 //
 // https://projecteuler.net/problem=2
-func PE0002(n int) (int, error) {
+func PE0002(n int) int {
 	if n < 3 {
-		return 0, errors.New("n must be >= 3")
+		return 0
 	}
 	i, j, result := 1, 1, 0
 	for ; j < n; i, j = j, i+j {
@@ -39,13 +37,13 @@ func PE0002(n int) (int, error) {
 			result = result + j
 		}
 	}
-	return result, nil
+	return result
 }
 
 // PE0003SortSort 600851475143の最大の素因數を計算 (sort.Sort版)
 //
 // https://projecteuler.net/problem=3
-func PE0003SortSort(n int) (int, error) {
+func PE0003SortSort(n int) int {
 	primeNumbers := []int{}
 
 	uLimit := int(math.Sqrt(float64(n)))
@@ -63,15 +61,15 @@ func PE0003SortSort(n int) (int, error) {
 
 	for _, p := range primeNumbers {
 		if n%p == 0 {
-			return p, nil
+			return p
 		}
 	}
 
-	return 0, errors.New("no solution")
+	return 0
 }
 
 // PE0003SortSlice 600851475143の最大の素因數を計算 (sort.SliceStable版)
-func PE0003SortSlice(n int) (int, error) {
+func PE0003SortSlice(n int) int {
 	primeNumbers := []int{}
 
 	uLimit := int(math.Sqrt(float64(n)))
@@ -89,11 +87,11 @@ func PE0003SortSlice(n int) (int, error) {
 
 	for _, p := range primeNumbers {
 		if n%p == 0 {
-			return p, nil
+			return p
 		}
 	}
 
-	return 0, errors.New("no solution")
+	return 0
 }
 
 // PE0003b 600851475143の最大の素因數を計算
@@ -195,20 +193,20 @@ func PE0007(n int) int {
 // PE0008 13の隣接する數字の積の内、最大の物を計算する。
 //
 // https://projecteuler.net/problem=8
-func PE0008(n int, grid string) (int, error) {
+func PE0008(n int, grid string) int {
 	maxNum := 0
 	for i := 0; i < len(grid)-n-1; i++ {
 		s := grid[i : i+n]
 		m, err := strconv.Atoi(s)
 		if err != nil {
-			return 0, errors.Wrap(err, s+" is invalid digits")
+			return 0
 		}
 		product := multiplyDigits(m)
 		if product > maxNum {
 			maxNum = product
 		}
 	}
-	return maxNum, nil
+	return maxNum
 }
 
 // PE0009 a+b+c=1000を滿たすピタゴラス數の積を計算する。
@@ -694,9 +692,9 @@ var pe0017WordLength = map[int]int{
 // PE0017SortSort 1-1000までの数字のスペルに含まれる文字数の総和を計算
 //
 // https://projecteuler.net/problem=16
-func PE0017SortSort(n int) (int, error) {
+func PE0017SortSort(n int) int {
 	if n < 1 || 1000 < n {
-		return 0, errors.New("n must be between 1 and 1000")
+		return 0
 	}
 
 	// keys (降順)
@@ -718,13 +716,13 @@ func PE0017SortSort(n int) (int, error) {
 			}
 		}
 	}
-	return sumWc, nil
+	return sumWc
 }
 
 // PE0017SortSlice 1-1000までの数字のスペルに含まれる文字数の総和を計算(2)
-func PE0017SortSlice(n int) (int, error) {
+func PE0017SortSlice(n int) int {
 	if n < 1 || 1000 < n {
-		return 0, errors.New("n must be between 1 and 1000")
+		return 0
 	}
 
 	// keys (降順)
@@ -746,7 +744,7 @@ func PE0017SortSlice(n int) (int, error) {
 			}
 		}
 	}
-	return sumWc, nil
+	return sumWc
 }
 
 // PE0018Memoization Problem 18をメモ化を使用して計算
