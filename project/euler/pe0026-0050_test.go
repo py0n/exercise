@@ -176,22 +176,16 @@ func TestPE0031a(t *testing.T) {
 
 // }}}
 
-func TestIsPandigital10(t *testing.T) {
+func TestPE0032a(t *testing.T) {
 	cases := []struct {
-		Input    int
-		Expected bool
+		Expected int
 	}{
-		{12345, false},
-		{98765, false},
-		{11223344, false},
-		{123456789, true},
-		{987654321, true},
+		{56370},
 	}
 	for _, tc := range cases {
-		if actual := IsPandigital10(tc.Input); actual != tc.Expected {
+		if actual := PE0032a(); actual != tc.Expected {
 			t.Errorf(
-				"Input:%v\nExpected:%v\nActual:%v",
-				tc.Input,
+				"Expected:%v\nActual:%v",
 				tc.Expected,
 				actual,
 			)

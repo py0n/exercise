@@ -3,6 +3,7 @@ package euler
 import (
 	"fmt"
 	"math/big"
+	"strconv"
 )
 
 // PE0026 d<nの内、1/dの循環節が最も長いものを計算する
@@ -253,27 +254,24 @@ func PE0031a() int {
 //    上記を満たすm, nの組は存在しない。
 //    こちらは考えなくて良い。
 //
-func PE0032a() {
-}
-
-// IsPandigital10 1-9までのパンデジタル数？
-//
-// https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%B3%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E6%95%B0
-func IsPandigital10(m int) bool {
-	if m < 123456789 {
-		return false
+func PE0032a() int {
+	sum := 0
+	ss := Permutation("123456789", 5)
+	for _, s := range ss {
+		// (m, n) = (1, 4)
+		a0, _ := strconv.Atoi(s[:1])
+		b0, _ := strconv.Atoi(s[1:5])
+		c0 := a0 * b0
+		if IsPandigital10(100000*c0 + 10*b0 + a0) {
+			sum += c0
+		}
+		// (m, n) = (2, 3)
+		a1, _ := strconv.Atoi(s[:2])
+		b1, _ := strconv.Atoi(s[2:5])
+		c1 := a1 * b1
+		if IsPandigital10(100000*c1 + 100*b1 + a1) {
+			sum += c1
+		}
 	}
-	if m > 987654321 {
-		return false
-	}
-
-	flags := int16(0)
-
-	for m > 0 {
-		r := m % 10
-		flags = flags | (1 << uint32(r-1))
-		m = m / 10
-	}
-
-	return (flags == 511)
+	return sum
 }
