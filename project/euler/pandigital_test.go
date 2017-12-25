@@ -7,11 +7,12 @@ func TestIsPandigital10(t *testing.T) {
 		Input    int
 		Expected bool
 	}{
-		{12345, false},
-		{98765, false},
-		{11223344, false},
 		{123456789, true},
+		{135792468, true},
 		{987654321, true},
+		{123456788, false}, // < 123456789
+		{987654322, false}, // > 987654321
+		{977654321, false}, // duplicated
 	}
 	for _, tc := range cases {
 		if actual := IsPandigital10(tc.Input); actual != tc.Expected {
