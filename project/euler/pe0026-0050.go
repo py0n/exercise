@@ -239,3 +239,41 @@ func PE0031a() int {
 
 	return len(m)
 }
+
+// PE0032a パンデジタル数
+//
+// m桁の正の整数Amとn (>= m)桁の正の整数Bnの積Cの桁数ははm+n-1 or m+nのいずれか。
+//
+// 1) m + n + (m + n - 1) = 2 * (m + n) - 1 = 9 -> m + n = 10/2 = 5
+//    (m, n) = (1, 4), (2, 3) が存在する。
+//    (m, n) = (1, 4) の時、積Cの桁数は4
+//    (m, n) = (2, 3) の時、積Cの桁数は4
+//
+// 2) m + n + (m + n) = 2 * (m + n) = 9 -> m + n = 9/2
+//    上記を満たすm, nの組は存在しない。
+//    こちらは考えなくて良い。
+//
+func PE0032a() {
+}
+
+// IsPandigital10 1-9までのパンデジタル数？
+//
+// https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%B3%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E6%95%B0
+func IsPandigital10(m int) bool {
+	if m < 123456789 {
+		return false
+	}
+	if m > 987654321 {
+		return false
+	}
+
+	flags := int16(0)
+
+	for m > 0 {
+		r := m % 10
+		flags = flags | (1 << uint32(r-1))
+		m = m / 10
+	}
+
+	return (flags == 511)
+}
