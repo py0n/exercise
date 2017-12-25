@@ -180,7 +180,7 @@ func TestPE0032a(t *testing.T) {
 	cases := []struct {
 		Expected int
 	}{
-		{56370},
+		{45228},
 	}
 	for _, tc := range cases {
 		if actual := PE0032a(); actual != tc.Expected {
