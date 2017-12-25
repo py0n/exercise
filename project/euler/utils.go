@@ -1,16 +1,5 @@
 package euler
 
-import (
-	"math/big"
-)
-
-// BigNumberLength 桁数を計算
-func BigNumberLength(n *big.Int) int {
-	m := big.NewInt(0).Set(n)
-	m.Abs(m)
-	return len(m.String())
-}
-
 // Gcm 最大公約數を計算する
 func Gcm(n, m int) int {
 	if n < 1 || m < 1 {
