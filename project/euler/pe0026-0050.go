@@ -254,6 +254,7 @@ func PE0031a() int {
 //    上記を満たすm, nの組は存在しない。
 //    こちらは考えなくて良い。
 //
+// https://projecteuler.net/problem=32
 func PE0032a() int {
 	used := map[int]bool{} // 既に加算した数
 	sum := 0               // 総和
