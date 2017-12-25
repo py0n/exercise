@@ -264,21 +264,17 @@ func PE0032a() int {
 		a0, _ := strconv.Atoi(s[:1])
 		b0, _ := strconv.Atoi(s[1:5])
 		c0 := a0 * b0
-		if IsPandigital10(100000*c0 + 10*b0 + a0) {
-			if _, ok := used[c0]; !ok {
-				used[c0] = true
-				sum += c0
-			}
+		if _, ok := used[c0]; !ok && IsPandigital10(100000*c0+10*b0+a0) {
+			used[c0] = true
+			sum += c0
 		}
 		// (m, n) = (2, 3)
 		a1, _ := strconv.Atoi(s[:2])
 		b1, _ := strconv.Atoi(s[2:5])
 		c1 := a1 * b1
-		if IsPandigital10(100000*c1 + 100*b1 + a1) {
-			if _, ok := used[c1]; !ok {
-				used[c1] = true
-				sum += c1
-			}
+		if _, ok := used[c1]; !ok && IsPandigital10(100000*c1+100*b1+a1) {
+			used[c1] = true
+			sum += c1
 		}
 	}
 	return sum
