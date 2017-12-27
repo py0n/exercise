@@ -47,6 +47,26 @@ func BenchmarkPermutationA(b *testing.B) {
 	}
 }
 
+func BenchmarkPermutationInt(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PermutationInt([]int{1, 2, 3, 4, 5, 6, 7, 8, 9}, 9)
+	}
+}
+
+func TestPermutationInt(t *testing.T) {
+	for _, tc := range testPermutationIntCases {
+		if actual := PermutationInt(tc.InputIntSlice, tc.InputK); !reflect.DeepEqual(actual, tc.Expected) {
+			t.Errorf(
+				"InputString:%v\nInputK:%v\nExpected:%v\nActual:%v",
+				tc.InputIntSlice,
+				tc.InputK,
+				tc.Expected,
+				actual,
+			)
+		}
+	}
+}
+
 func TestPermutationNumber(t *testing.T) {
 	for _, tc := range testPermutationNumberCases {
 		if actual := PermutationNumber(tc.InputM, tc.InputN); actual != tc.Expected {
@@ -127,6 +147,40 @@ var testPermutationCases2 = []struct {
 	{[]rune("abc"), -1, nil}, // K<1
 	{[]rune("abc"), 4, nil},  // K>len(String)
 	{[]rune("abcd"), 5, nil}, // K>len(String)
+}
+
+var testPermutationIntCases = []struct {
+	InputIntSlice []int
+	InputK        int
+	Expected      [][]int
+}{
+	{[]int{1, 2, 3}, 2, [][]int{
+		[]int{1, 2}, []int{1, 3},
+		[]int{2, 1}, []int{2, 3},
+		[]int{3, 1}, []int{3, 2},
+	}},
+	{[]int{1, 2, 3}, 3, [][]int{
+		[]int{1, 2, 3}, []int{1, 3, 2},
+		[]int{2, 1, 3}, []int{2, 3, 1},
+		[]int{3, 1, 2}, []int{3, 2, 1},
+	}},
+	{[]int{1, 2, 3, 4}, 2, [][]int{
+		[]int{1, 2}, []int{1, 3}, []int{1, 4},
+		[]int{2, 1}, []int{2, 3}, []int{2, 4},
+		[]int{3, 1}, []int{3, 2}, []int{3, 4},
+		[]int{4, 1}, []int{4, 2}, []int{4, 3},
+	}},
+	{[]int{1, 2, 3, 4}, 3, [][]int{
+		[]int{1, 2, 3}, []int{1, 2, 4}, []int{1, 3, 2}, []int{1, 3, 4}, []int{1, 4, 2}, []int{1, 4, 3},
+		[]int{2, 1, 3}, []int{2, 1, 4}, []int{2, 3, 1}, []int{2, 3, 4}, []int{2, 4, 1}, []int{2, 4, 3},
+		[]int{3, 1, 2}, []int{3, 1, 4}, []int{3, 2, 1}, []int{3, 2, 4}, []int{3, 4, 1}, []int{3, 4, 2},
+		[]int{4, 1, 2}, []int{4, 1, 3}, []int{4, 2, 1}, []int{4, 2, 3}, []int{4, 3, 1}, []int{4, 3, 2},
+	}},
+	// 異常系
+	{[]int{1, 2, 3}, 0, nil},    // K<1
+	{[]int{1, 2, 3}, -1, nil},   // K<1
+	{[]int{1, 2, 3}, 4, nil},    // K>len{Int}
+	{[]int{1, 2, 3, 4}, 5, nil}, // K>len{Int}
 }
 
 var testPermutationNumberCases = []struct {

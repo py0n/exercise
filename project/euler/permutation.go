@@ -70,6 +70,43 @@ func PermutationA(s string, k int) []string {
 	return ss
 }
 
+// PermutationInt 整數スライスの順列を生成
+func PermutationInt(rs []int, k int) [][]int {
+	// 引數檢査
+	if k < 1 || len(rs) < k {
+		return nil
+	}
+
+	// 結果を格納する配列
+	rss := make([][]int, 0, PermutationNumber(len(rs), k))
+
+	var perm func([]int, []int, int)
+
+	perm = func(sequence, rest []int, i int) {
+		for j := 0; j < len(rest); j++ {
+			rest[j], rest[0] = rest[0], rest[j]
+
+			restNew := make([]int, len(rest)-1)
+			copy(restNew, rest[1:])
+
+			sequenceNew := make([]int, i+1)
+			copy(sequenceNew, sequence)
+
+			sequenceNew[i] = rest[0]
+
+			if i == k-1 {
+				rss = append(rss, sequenceNew)
+			} else {
+				perm(sequenceNew, restNew, i+1)
+			}
+		}
+	}
+
+	perm(nil, rs, 0)
+
+	return rss
+}
+
 // PermutationNumber 順列の數P(m,n)
 func PermutationNumber(m, n int) int {
 	if m < 1 || n < 1 || m < n {
