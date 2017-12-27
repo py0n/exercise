@@ -16,12 +16,13 @@ func Permutation(rs []rune, k int) [][]rune {
 		for j := 0; j < len(rest); j++ {
 			rest[j], rest[0] = rest[0], rest[j]
 
-			sequenceNew := make([]rune, i+1)
-			copy(sequenceNew, sequence)
-			sequenceNew[i] = rest[0]
-
 			restNew := make([]rune, len(rest)-1)
 			copy(restNew, rest[1:])
+
+			sequenceNew := make([]rune, i+1)
+			copy(sequenceNew, sequence)
+
+			sequenceNew[i] = rest[0]
 
 			if i == k-1 {
 				rss = append(rss, sequenceNew)
