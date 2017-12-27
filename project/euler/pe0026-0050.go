@@ -258,19 +258,19 @@ func PE0031a() int {
 func PE0032a() int {
 	used := map[int]bool{} // 既に加算した数
 	sum := 0               // 総和
-	ss := Permutation("123456789", 5)
-	for _, s := range ss {
+	rss := Permutation([]rune("123456789"), 5)
+	for _, rs := range rss {
 		// (m, n) = (1, 4)
-		a0, _ := strconv.Atoi(s[:1])
-		b0, _ := strconv.Atoi(s[1:5])
+		a0, _ := strconv.Atoi(string(rs[:1]))
+		b0, _ := strconv.Atoi(string(rs[1:5]))
 		c0 := a0 * b0
 		if _, ok := used[c0]; !ok && IsPandigital10(100000*c0+10*b0+a0) {
 			used[c0] = true
 			sum += c0
 		}
 		// (m, n) = (2, 3)
-		a1, _ := strconv.Atoi(s[:2])
-		b1, _ := strconv.Atoi(s[2:5])
+		a1, _ := strconv.Atoi(string(rs[:2]))
+		b1, _ := strconv.Atoi(string(rs[2:5]))
 		c1 := a1 * b1
 		if _, ok := used[c1]; !ok && IsPandigital10(100000*c1+100*b1+a1) {
 			used[c1] = true

@@ -176,6 +176,7 @@ func TestPE0031a(t *testing.T) {
 
 // }}}
 
+// PE0032 {{{
 func TestPE0032a(t *testing.T) {
 	cases := []struct {
 		Expected int
@@ -192,5 +193,7 @@ func TestPE0032a(t *testing.T) {
 		}
 	}
 }
+
+// }}}
 
 // vim:set foldmethod=marker:

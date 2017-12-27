@@ -8,7 +8,7 @@ import (
 )
 
 func TestPermutation(t *testing.T) {
-	for _, tc := range testPermutationCases {
+	for _, tc := range testPermutationCases2 {
 		if actual := Permutation(tc.InputString, tc.InputK); !reflect.DeepEqual(actual, tc.Expected) {
 			t.Errorf(
 				"InputString:%v\nInputK:%v\nExpected:%v\nActual:%v",
@@ -22,7 +22,7 @@ func TestPermutation(t *testing.T) {
 }
 
 func TestPermutationA(t *testing.T) {
-	for _, tc := range testPermutationCases2 {
+	for _, tc := range testPermutationCases {
 		if actual := PermutationA(tc.InputString, tc.InputK); !reflect.DeepEqual(actual, tc.Expected) {
 			t.Errorf(
 				"InputString:%v\nInputK:%v\nExpected:%v\nActual:%v",
@@ -37,13 +37,13 @@ func TestPermutationA(t *testing.T) {
 
 func BenchmarkPermutation(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Permutation("123456789", 9)
+		Permutation([]rune("123456789"), 9)
 	}
 }
 
 func BenchmarkPermutationA(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		PermutationA([]rune("123456789"), 9)
+		PermutationA("123456789", 9)
 	}
 }
 
