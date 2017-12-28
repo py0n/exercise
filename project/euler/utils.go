@@ -1,24 +1,5 @@
 package euler
 
-// Gcm 最大公約數を計算する
-func Gcm(n, m int) int {
-	if n < 1 || m < 1 {
-		return 0
-	}
-	if n < m {
-		n, m = m, n
-	}
-	for {
-		r := n % m
-		if r > 0 {
-			n, m = m, r
-		}
-		if r == 0 {
-			return m
-		}
-	}
-}
-
 // IsPalindrome 囘文？
 func IsPalindrome(s string) bool {
 	if len(s) == 0 {
@@ -31,17 +12,6 @@ func IsPalindrome(s string) bool {
 		}
 	}
 	return true
-}
-
-// Lcm 最小公倍數を計算する
-func Lcm(n, m int) int {
-	g := Gcm(n, m)
-	if g == 0 {
-		return 0
-	} else if g == 1 {
-		return n * m
-	}
-	return n * m / g
 }
 
 // Pow 累乘を計算
