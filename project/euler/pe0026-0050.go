@@ -279,3 +279,9 @@ func PE0032a() int {
 	}
 	return sum
 }
+
+// PE0033 特殊な分數の積の分母を計算
+//
+// https://projecteuler.net/problem=33
+func PE0033() {
+}
