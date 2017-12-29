@@ -14,7 +14,9 @@ install-extra:
 
 ## setup tools
 setup:
+	go get github.com/Songmu/make2help/cmd/make2help
 	go get github.com/golang/dep/cmd/dep
+	go get github.com/golang/lint/golint
 
 ## install dependency
 deps: setup
