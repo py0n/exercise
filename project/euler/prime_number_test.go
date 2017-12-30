@@ -1,23 +1,11 @@
 package euler
 
+// 素數のテスト
+
 import (
 	"reflect"
 	"testing"
 )
-
-func BenchmarkPrimeGenerator0(b *testing.B) {
-	PrimeGenerator := NewPrimeGenerator0()
-	for i := 0; i < b.N; i++ {
-		PrimeGenerator.Next()
-	}
-}
-
-func BenchmarkPrimeGenerator1(b *testing.B) {
-	PrimeGenerator := NewPrimeGenerator1()
-	for i := 0; i < b.N; i++ {
-		PrimeGenerator.Next()
-	}
-}
 
 func BenchmarkPrimeGenerator(b *testing.B) {
 	PrimeGenerator := NewPrimeGenerator()
