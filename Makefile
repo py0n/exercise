@@ -27,7 +27,7 @@ test: deps
 	go test ./project/euler
 
 ## lint
-lint:
+lint: setup
 	go vet ./project/euler
 	golint ./project/euler
 
