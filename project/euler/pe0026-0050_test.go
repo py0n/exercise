@@ -216,4 +216,10 @@ func TestPE0033(t *testing.T) {
 
 // }}}
 
+// PE0035 {{{
+func TestPE0035(t *testing.T) {
+}
+
+// }}}
+
 // vim:set foldmethod=marker:
