@@ -408,5 +408,13 @@ func PE0034() int {
 // PE0035 1,000,000以下の巡回素数の個数を計算
 //
 // https://projecteuler.net/problem=35
-func PE0035() {
+func PE0035(n int) int {
+	// n以下の素数列
+	ps := []int{}
+	pg := NewPrimeGenerator()
+	for p := pg.Next(); p <= n; p = pg.Next() {
+		ps = append(ps, p)
+	}
+
+	return 0
 }
