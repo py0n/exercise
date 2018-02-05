@@ -11,9 +11,11 @@ install-extra:
 	go get -u github.com/rogpeppe/godef
 	go get -u golang.org/x/tools/cmd/...
 
-## setup tools
-setup:
+setup-make2help:
 	go get -u github.com/Songmu/make2help/cmd/make2help
+
+## setup tools
+setup: setup-make2help
 	go get -u github.com/golang/dep/cmd/dep
 	go get -u github.com/golang/lint/golint
 
@@ -31,5 +33,5 @@ lint: setup
 	golint ./project/euler
 
 ## show help
-help:
+help: setup-make2help
 	@make2help $(MAKEFILE_LIST)
