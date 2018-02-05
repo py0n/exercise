@@ -216,6 +216,26 @@ func TestPE0033(t *testing.T) {
 
 // }}}
 
+// PE0034 {{{
+func TestPE0034(t *testing.T) {
+	cases := []struct {
+		Expected int
+	}{
+		{40730},
+	}
+	for _, tc := range cases {
+		if actual := PE0034(); actual != tc.Expected {
+			t.Errorf(
+				"Expected:%v\nActual:%v",
+				tc.Expected,
+				actual,
+			)
+		}
+	}
+}
+
+// }}}
+
 // PE0035 {{{
 func TestPE0035(t *testing.T) {
 }

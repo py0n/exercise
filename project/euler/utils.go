@@ -6,8 +6,8 @@ func IsPalindrome(s string) bool {
 		return true
 	}
 	r := []rune(s)
-	for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {
-		if r[i] != r[j] {
+	for i := 0; i < len(r)/2; i++ {
+		if r[i] != r[len(r)-i-1] {
 			return false
 		}
 	}

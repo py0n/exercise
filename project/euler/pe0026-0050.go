@@ -374,6 +374,37 @@ func PE0033() int {
 	return pD / Gcm(pN, pD)
 }
 
+// PE0034 各桁の階乗の和が自分自身と一致する数の総和を計算する
+//
+// 0! = 1
+// 1! = 1
+// 2! = 2
+// 3! = 6
+// 4! = 24
+// 5! = 120
+// 6! = 720
+// 7! = 5040
+// 8! = 40320
+// 9! = 362880
+//
+// 9!が6桁なので、求める数は最大でも7桁
+//
+// https://projecteuler.net/problem=34
+func PE0034() int {
+	sum := 0
+	factorials := []int{1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880}
+	for i := 3; i < 10000000; i++ {
+		s := 0
+		for j := i; j > 0; j /= 10 {
+			s += factorials[j%10]
+		}
+		if i == s {
+			sum += s
+		}
+	}
+	return sum
+}
+
 // PE0035 1,000,000以下の巡回素数の個数を計算
 //
 // https://projecteuler.net/problem=35
